@@ -1,0 +1,469 @@
+// Created by Anders Erik Nissen
+// Github: AndersErikNissen
+
+// Also used in AndersErikNissen/portfolio-v3
+
+/* 
+  Normalize and Standard Values
+*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+*,
+:before, // Single Quote should be best-use since old browsers still don't use double.
+:after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  // scroll-behavior: smooth;
+
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+
+  font-size: 100%;
+  line-height: 1.65;
+  font-weight: 400;
+  color: var(--color-font);
+
+  background-color: var(--color-bg-second);
+}
+
+picture,
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+button {
+  background-color: inherit;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* 
+  Font
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: --font-header-weight;
+}
+h1 {
+  font-size: clamp(3.8rem, 10vw, 6rem);
+  &.clamp--small {
+    font-size: clamp(2rem, 10vw, 3.8rem);
+  }
+  &.width-max {
+    max-width: 12ch;
+  }
+  // Diffrent Line-height could be relevant on all headers    .
+}
+h2 {
+  font-size: 3.5rem;
+  &.clamp {
+    font-size: clamp(2rem, 10vw, 4.5rem);
+  }
+  &.clamp--small {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+  }
+  &.slide {
+    display: block;
+    overflow: hidden;
+  }
+}
+h3 {
+  font-size: 3rem;
+  &.clamp {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+}
+h4 {
+  font-size: 2.5rem;
+  &.clamp {
+    font-size: clamp(1.9rem, 5vw, 2.5rem);
+  }
+}
+h5 {
+  font-size: 1.8rem;
+}
+h6 {
+  font-size: 1.5rem;
+}
+
+/*
+    Text Sizing
+*/
+.small-txt {
+  font-size: 0.75rem;
+}
+.basic {
+  font-style: 400;
+}
+.center-txt {
+  text-align: center;
+}
+.bold,
+b {
+  font-weight: 700;
+}
+.italic {
+  font-style: italic;
+}
+p {
+  max-width: 58ch;
+  &.large {
+    font-size: 1.5rem;
+  }
+}
+a {
+  color: --color-a;
+  font-size: --a-size;
+  font-weight: --a-weight;
+
+  text-decoration: none;
+  &.underline {
+    text-decoration: underline;
+  }
+  &.animate {
+    &:hover,
+    &:focus {
+      transition: 0.3s linear;
+      transform: scale(1.1);
+    }
+  }
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* 
+  Global Class'
+*/
+.pack {
+  width: 100%;
+  height: auto;
+  position: relative; // If child elements need to use position: absolute.
+  // Could use a max-width.
+}
+.fixed {
+  position: fixed;
+  &.zero--100 {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+}
+//  Hero
+.sticky {
+  &--hero {
+    min-height: 100vh;
+    width: 100%;
+  
+    position: sticky;
+    left: 0;
+    z-index: 0;
+  }
+  &--main {
+    position: relative;
+    z-index: 1;
+  }
+  &--main .air {
+    padding: var(--padding-vh-normal) 0;
+  }
+  &--main section.fill {
+    background-color: var(--color-bg-second);
+  }
+}
+.heroBg {
+  background-color: var(--color-bg-first-5);
+}
+
+// #Flex
+.flex {
+  display: flex;
+
+  &.center {
+    justify-content: center;
+    align-items: center;
+  }
+  &.column {
+    flex-direction: column;
+    &--sb {
+      justify-content: space-between;
+    }
+    &--sa {
+      justify-content: space-around;
+    }
+    &--se {
+      justify-content: space-evenly;
+    }
+  }
+  &.row {
+    flex-direction: row;
+    align-items: center;
+    &--sb {
+      justify-content: space-between;
+    }
+    &--sa {
+      justify-content: space-around;
+    }
+    &--se {
+      justify-content: space-evenly;
+    }
+    &--top {
+      align-items: flex-start;
+    }
+  }
+  &.wrap {
+    flex-wrap: wrap;
+  }
+}
+/*
+  Common Items
+*/
+ul {
+  aside & li span {
+    font-size: clamp(1rem, 5vw, 1.2rem);
+  }
+  #nav &.desktop {
+    //Works on TheNavigation
+    & li {
+      margin: 0 1rem;
+      & a {
+        color: var(--color-a);
+      }
+    }
+    & li:last-of-type {
+      //Removes margin from the right most li in our navigation list.
+      margin-right: 0;
+    }
+  }
+  #nav & {
+    &.nav__mobile--ul a {
+      color: var(--color-a-second);
+    }
+    & li {
+      & a {
+        &.router-link-exact-active {
+          color: var(--color-a-active);
+        } 
+      }
+    }
+  }
+  &.clean {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/*
+  Animations
+*/
+.display {
+  &--block {
+    display: block;
+  }
+  &--flex {
+    display: flex;
+  }
+  &--inline-block {
+    display: inline-block;
+  }
+  &--inline {
+    display: inline;
+  }
+  &--none {
+    display: none;
+  }
+}
+.nav--transition {
+  transition: opacity 1s linear;
+  opacity: 1;
+}
+
+/* 
+  #Button Designs
+*/
+a {
+  &.btn {
+      color: inherit;
+      text-decoration: inherit;
+  }
+}
+.btn {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  min-width: 20ch;
+  padding: 0.8rem 1.5rem;
+  margin: 1rem 0;
+  
+  font-size: var(--font-btn);
+  line-height: var(--font-btn);
+  color: white;
+  text-align: center;
+
+  background-color: var(--color-btn);
+  &.slim {
+    border: 1px solid var(--color-btn-border);
+  }
+  &.round {
+    border-radius: 200px;
+  }
+  &.bold {
+    font-weight: 700;
+  }
+
+  // Special Hover Effect
+  //#1 Circle Cover (!Remember to use <span>)
+  // - Will cover the whole button, and the text if a span is not used.
+  & span {
+    position: relative;
+    z-index: 1;
+    font-size: var(--font-btn);
+    color: white;
+    text-align: center;
+    font-weight: 700;
+  }
+  &::before {
+    transition: .6s;
+    content: "";
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgb(255,102,0);
+    background: radial-gradient(circle, rgba(255,102,0,1) 0%, rgba(194,31,136,1) 100%);
+    position: absolute;
+    top: -50px;
+    // Not sure if to use -50 / -100 px.
+    right: -100px;
+  }
+  &:hover::before,
+  &:focus::before {
+    transform: scale(12);
+  }
+}
+// Email Button
+#aen_email {
+  & .btn {
+    padding: 1.2rem 2rem;
+    margin: 2rem 0;
+  }
+  & .btn span {
+    font-size: calc(var(--font-btn) * 1.5);
+  }
+  & .btn:hover::before,
+  & .btn:focus::before {
+    transform: scale(22);
+  }
+} 
+/* 
+  #Grids
+*/
+// Square: 1 large, 2 smaller
+.grid {
+  &--2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &--template {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    & .area--1 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+    & .area--2 {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+    @media screen and (max-width: 1024px) {
+      grid-template-columns: 1fr;
+    & .area--1 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+    & .area--2 {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    }
+  }
+
+  &--square1lx2s {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    & .grid-area-large {
+      grid-area: 1 / 1 / 3 / 2;
+    }
+    & .grid-area-smallOne {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+    & .grid-area-smallTwo {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    &--2x2 {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+/* 
+  #Scale
+*/
+
+.max-width {
+  & > * {
+    max-width: 1200px;
+  }
+}
+.split {
+  &--40 {
+    width: 40%;
+  }
+  &--60 {
+    width: 60%;
+  }
+  @media screen and (max-width: 1024px) {
+    &--40,
+    &--60 {
+      width: 100%;
+    }
+  }
+}
+/*
+  #VUE TRANSITIONS
+
+  Help from: https://vuejs.org/v2/guide/transitions.html
+*/
+.opa-leave-active {
+  transition: opacity 1s;
+  & img {
+    transition: opacity 1s;
+  }
+}
+.opa-leave-to {
+  opacity: 0;
+  & img {
+    opacity: 0;
+  }
+}
