@@ -5,18 +5,18 @@
     },
     "holdplan": {
         "title": "Holdplan",
-        "desc": ""
+        "desc": "Desc"
     },
     "blog": {
         "title": "Blog",
-        "desc": ""
+        "desc": "Desc"
     },
     "nyheder": {
         "title": "Nyheder og Events",
-        "desc": ""
+        "desc": "Desc"
     },
     "discipliner": {
         "title": "Discipliner",
-        "desc": ""
+        "desc": "Desc"
     }
 }

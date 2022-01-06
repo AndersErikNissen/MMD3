@@ -93,7 +93,7 @@ router.beforeEach((to,from, next) => {
     document.title = "Aalborg Martial Arts - " + to.meta.title;
 
     // Help from https://stackoverflow.com/questions/2568760/is-it-possible-to-use-javascript-to-change-the-meta-tags-of-the-page/2568915
-    document.querySelector('meta[name="description"]').setAttribute('content', to.meta.desc);
+    document.querySelector('meta[name="description"]').setAttribute('content', to.meta.description);
   } else {
     document.title = "Aalborg Martial Arts";
   }
