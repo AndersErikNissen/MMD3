@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 // import axios from 'axios'
 
 // import data from '@/assets/Data/data.json'
-// import ApiGet from '@/assets/api/apiroutes'
+import { ApiGet, ApiGetTest, ApiWordPress } from '@/assets/api/apiRoutes'
 
 // DISCLAIMER:
 // Some of the store code are reused from AEN's portfolio-v3

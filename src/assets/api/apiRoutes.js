@@ -36,6 +36,7 @@ const
         allHoldplans: apiBaseTest + holdplans + _populateAll,
         allMedlemskabs: apiBaseTest + medlemskabs + _populateAll,
         allnyheds: apiBaseTest + nyheds + _populateAll,
-    };
+    },
+    ApiWordPress = "https://skole.aenders.dk/wp-json/wp/v2/posts/2990";
 
-export default { ApiGet, ApiGetTest };
+export default { ApiGet, ApiGetTest, ApiWordPress };
