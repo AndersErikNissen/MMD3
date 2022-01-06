@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Forside from '../views/ViewForside.vue'
 
+// For meta tags Vue-Meta could be used, but I seem that it doesn't work with Vue3 at the moment, so meta will be used with the routes.
+
 const routes = [
   {
     path: '/',
@@ -45,5 +47,10 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
+
+router.beforeEach((to,from, next) => {
+  console.log(to,from)
+  next();
+}) 
 
 export default router
