@@ -1,0 +1,22 @@
+{
+    "forside": {
+        "title": "Forside",
+        "desc": "Desc"
+    },
+    "holdplan": {
+        "title": "Holdplan",
+        "desc": ""
+    },
+    "blog": {
+        "title": "Blog",
+        "desc": ""
+    },
+    "nyheder": {
+        "title": "Nyheder og Events",
+        "desc": ""
+    },
+    "discipliner": {
+        "title": "Discipliner",
+        "desc": ""
+    }
+}

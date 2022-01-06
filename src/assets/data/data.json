@@ -3,6 +3,22 @@
         {
             "name": "Forside",
             "path": "/"
+        },
+        {
+            "name": "Holdplan",
+            "path": "/holdplan"
+        },
+        {
+            "name": "Nyheder og Events",
+            "path": "/nyheder"
+        },
+        {
+            "name": "Discipliner",
+            "path": "/discipliner"
+        },
+        {
+            "name": "Blog ",
+            "path": "/blog"
         }
     ]
 }
