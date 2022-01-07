@@ -21,7 +21,7 @@ export default {
   name: "App",
   data() {
     return {
-      path: "forside",
+      path: "the-footer",
       tests: this.$store.state.s.data,
       loading: false
     };
