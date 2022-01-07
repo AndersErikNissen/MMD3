@@ -8,8 +8,8 @@ import axios from 'axios'
 // import data from '@/assets/Data/data.json'
 
 import ApiData from '@/assets/api/apiRoutes'
-const { ApiGet, ApiGetTest, ApiWordPress } = ApiData;
-console.log(ApiGet, ApiGetTest, ApiWordPress)
+const { ApiGet, ApiGetTest} = ApiData;
+console.log(ApiGet, ApiGetTest)
 
 const strapi_singleTypes = {
     namespaced: true,

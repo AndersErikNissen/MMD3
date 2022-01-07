@@ -8,17 +8,17 @@ const
     apiBase = "https://mmd3-strapi.herokuapp.com/api/",
     apiBaseTest = "http://localhost:1337/api/",
 
-    // Paths
+    // Paths (Strapi)
     disciplins = "disciplins",
     events = "events",
     holdplans = "holdplans",
     medlemskabs = "medlemskabs",
     nyheds = "nyheds",
 
+    // WordPress ID's
+
     // Queries (Start with _)
-    _q = "?", // Query begining
-    // _qb = "&", // Query "binder", if more than 1 query
-    _populateAll = _q + "populate=*",
+    _populateAll = "?" + "populate=*",
     // _populate = what => _q + "populate=" + what,
 
 
@@ -39,8 +39,7 @@ const
             allMedlemskabs: apiBaseTest + medlemskabs + _populateAll,
             allnyheds: apiBaseTest + nyheds + _populateAll,
             singleBase: id => apiBaseTest + id + _populateAll,
-        },
-        ApiWordPress: "https://skole.aenders.dk/wp-json/wp/v2/posts/2990"
+        }
     };
 
 export default exportObject;

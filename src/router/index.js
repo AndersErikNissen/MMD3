@@ -77,6 +77,17 @@ const routes = [
       title: dataMeta.discipliner.title,
       description: dataMeta.discipliner.desc
     }
+  },
+  {
+    path: '/error',
+    name: 'NotFound',
+    component: () => import('../views/ViewError.vue')
+  },
+  {
+    // It seems that is just the way to type the last path that picks up everything that comes this far.
+    path: "/:pathMatch(.*)*",
+    name: "LastStop",
+    redirect: '/error'
   }
 ]
 
