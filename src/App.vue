@@ -4,11 +4,53 @@
     <router-link to="/blog">About</router-link>
   </div>
 
-  <h1>TEST</h1>
+  <h1>APP</h1>
+  <button @click="getSingle">TEST BTN</button>
+  <p>
+    {{loading}}
+  </p>
+  <p>
+    {{ tests }}
+  </p>
+
   <router-view />
 </template>
 
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      path: "forside",
+      tests: this.$store.state.s.data,
+      loading: false
+    };
+  },
+  computed: {
+    getData() {
+      return this.$store.state.s.data.forside
+    }
+  },
+  methods: {
+    async getSingle() {
+      // Same structure with Async/Await + Try/Catch, from Github: AndersErikNissen/portfolio-v3, the difference is in the $store.
+      if (!this.getData) {
+        this.loading = true;
+        try {
+          await this.$store.dispatch("s/getSingle", this.path);
+        } catch(err) {
+          this.loading = false;
+          console.log("%c GET ERROR ", "background-color: red;", err)
+        }
+        this.loading = false;
+      }
+    },
+  },
+  created() {
+    this.getSingle();
+  },
+};
+</script>
+
 <style lang="scss">
-
-
 </style>

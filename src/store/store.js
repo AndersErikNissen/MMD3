@@ -1,21 +1,64 @@
-import { createStore } from 'vuex'
-// import axios from 'axios'
-
-// import data from '@/assets/Data/data.json'
-import { ApiGet, ApiGetTest, ApiWordPress } from '@/assets/api/apiRoutes'
-
 // DISCLAIMER:
 // Some of the store code are reused from AEN's portfolio-v3
 // Github: AndersErikNissen/portfolio-v3
 
+import { createStore } from 'vuex'
+import axios from 'axios'
+
+// import data from '@/assets/Data/data.json'
+
+import ApiData from '@/assets/api/apiRoutes'
+const { ApiGet, ApiGetTest, ApiWordPress } = ApiData;
+console.log(ApiGet, ApiGetTest, ApiWordPress)
+
+const strapi_singleTypes = {
+    namespaced: true,
+    state: {
+        data: {}
+    },
+    getters: {
+
+    },
+    mutations: {
+        ADD_SINGLE: (state, {key, value}) => {
+            state.data[key] = value;
+        }
+    },
+    actions: {
+        async getSingle({ commit }, key) {
+            // Await for the answer from axios, then use that data in post and commit it if there was no error.
+            const getRequest = await axios.get(ApiGetTest.singleBase(key));
+            const single = getRequest.data;
+            commit("ADD_SINGLE", {key: "images", value: single})
+        },
+    }
+}
+const strapi_allTypes = {
+    state: {
+
+    },
+    getters: {
+
+    },
+    mutations: {
+
+    },
+    actions: {
+
+    }
+}
 
 export default createStore({
+    modules: {
+        s: strapi_singleTypes,
+        a: strapi_allTypes
+    },
     state() {
         return {
             //Used to know what the width of the screen is at the moment, and will update on resize from the use of the mutation (RESIZE_WINDOW).
             windowWidth: window.innerWidth,
 
-            
+
         }
     },
     getters: {
@@ -54,42 +97,42 @@ export default createStore({
         // },
     },
     actions: {
-    //     async loadSinglePost({ commit }, payload) {
-    //         /* 
-    //             Inspiration from: https://medium.com/js-dojo/vuex-tip-error-handling-on-actions-ee286ed28df4
-    //         */
-    //         // Await for the answer from axios, then use that data in post and commit it if there was no error.
-    //         const getRequest = await axios.get(ApiGet.byId(payload));
-    //         const post = getRequest.data;
+        //     async loadSinglePost({ commit }, payload) {
+        //         /* 
+        //             Inspiration from: https://medium.com/js-dojo/vuex-tip-error-handling-on-actions-ee286ed28df4
+        //         */
+        //         // Await for the answer from axios, then use that data in post and commit it if there was no error.
+        //         const getRequest = await axios.get(ApiGet.byId(payload));
+        //         const post = getRequest.data;
 
-    //         // - If there is an error, it could be a code:200 but something still went wrong, and we get an empty array then we don't want to commit.
-    //         // - *It could be that there were some issues with the Query Parameters.
-    //         // -- *It might be unessary..
-    //         if (!post.length) {
-    //             commit("ADD_TO_MAIN", post);
-    //         }
-    //     },
-    //     async loadAll({ commit }, payload) {
-    //         /* 
-    //             Inspiration from: https://medium.com/js-dojo/vuex-tip-error-handling-on-actions-ee286ed28df4
-    //         */
-    //         // Await for the answer from axios, then use that data in post and commit it if there was no error.
-    //         let getRequest;
-    //         if(payload === 0) {
-    //             getRequest = await axios.get(ApiGet.allCases);
-    //             const posts = getRequest.data;
-    //             commit("ADD_TO_CASES", posts);
+        //         // - If there is an error, it could be a code:200 but something still went wrong, and we get an empty array then we don't want to commit.
+        //         // - *It could be that there were some issues with the Query Parameters.
+        //         // -- *It might be unessary..
+        //         if (!post.length) {
+        //             commit("ADD_TO_MAIN", post);
+        //         }
+        //     },
+        //     async loadAll({ commit }, payload) {
+        //         /* 
+        //             Inspiration from: https://medium.com/js-dojo/vuex-tip-error-handling-on-actions-ee286ed28df4
+        //         */
+        //         // Await for the answer from axios, then use that data in post and commit it if there was no error.
+        //         let getRequest;
+        //         if(payload === 0) {
+        //             getRequest = await axios.get(ApiGet.allCases);
+        //             const posts = getRequest.data;
+        //             commit("ADD_TO_CASES", posts);
 
-    //             console.log("%c actions: loadAll: Result", "background-color: blue; color: white;", posts)
-    //         } else if (payload === 1) {
-    //             getRequest = await axios.get(ApiGet.allDesigns);
-    //             const posts = getRequest.data;
-    //             commit("ADD_TO_DESIGNS", posts);
-                
-    //             console.log("%c actions: loadAll: Result", "background-color: blue; color: white;", posts)
-    //         }
-            
-    //     },
+        //             console.log("%c actions: loadAll: Result", "background-color: blue; color: white;", posts)
+        //         } else if (payload === 1) {
+        //             getRequest = await axios.get(ApiGet.allDesigns);
+        //             const posts = getRequest.data;
+        //             commit("ADD_TO_DESIGNS", posts);
+
+        //             console.log("%c actions: loadAll: Result", "background-color: blue; color: white;", posts)
+        //         }
+
+        //     },
     }
 });
 

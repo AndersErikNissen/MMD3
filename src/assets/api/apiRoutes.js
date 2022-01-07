@@ -17,26 +17,30 @@ const
 
     // Queries (Start with _)
     _q = "?", // Query begining
-    _qb = "&", // Query "binder", if more than 1 query
+    // _qb = "&", // Query "binder", if more than 1 query
     _populateAll = _q + "populate=*",
-    _populate = what => _q + "populate=" + what,
+    // _populate = what => _q + "populate=" + what,
 
 
     // Collection
-    ApiGet = {
-        allDisciplins: apiBase + disciplins + _populateAll,
-        allDvents: apiBase + events + _populateAll,
-        allHoldplans: apiBase + holdplans + _populateAll,
-        allMedlemskabs: apiBase + medlemskabs + _populateAll,
-        allnyheds: apiBase + nyheds + _populateAll,
-    },
-    ApiGetTest = {
-        disciplins: apiBaseTest + disciplins + _populateAll,
-        allDvents: apiBaseTest + events + _populateAll,
-        allHoldplans: apiBaseTest + holdplans + _populateAll,
-        allMedlemskabs: apiBaseTest + medlemskabs + _populateAll,
-        allnyheds: apiBaseTest + nyheds + _populateAll,
-    },
-    ApiWordPress = "https://skole.aenders.dk/wp-json/wp/v2/posts/2990";
+    exportObject = {
+        ApiGet: {
+            allDisciplins: apiBase + disciplins + _populateAll,
+            allDvents: apiBase + events + _populateAll,
+            allHoldplans: apiBase + holdplans + _populateAll,
+            allMedlemskabs: apiBase + medlemskabs + _populateAll,
+            allnyheds: apiBase + nyheds + _populateAll,
+            singleBase: id => apiBase + id + _populateAll
+        },
+        ApiGetTest: {
+            disciplins: apiBaseTest + disciplins + _populateAll,
+            allDvents: apiBaseTest + events + _populateAll,
+            allHoldplans: apiBaseTest + holdplans + _populateAll,
+            allMedlemskabs: apiBaseTest + medlemskabs + _populateAll,
+            allnyheds: apiBaseTest + nyheds + _populateAll,
+            singleBase: id => apiBaseTest + id + _populateAll,
+        },
+        ApiWordPress: "https://skole.aenders.dk/wp-json/wp/v2/posts/2990"
+    };
 
-export default { ApiGet, ApiGetTest, ApiWordPress };
+export default exportObject;
