@@ -379,6 +379,9 @@ a {
   &:focus::before {
     transform: translateX(-5%) skew(-20deg);
   }
+  &:focus {
+    border: solid var(--neutral-300) 2px;
+  }
 }
 /* 
   #Grids

@@ -9,13 +9,12 @@ const
     apiBaseTest = "http://localhost:1337/api/",
 
     // Paths (Strapi)
-    disciplins = "disciplins",
-    events = "events",
-    holdplans = "holdplans",
-    medlemskabs = "medlemskabs",
-    nyheds = "nyheds",
-
-    // WordPress ID's
+    // disciplins = "disciplins",
+    // events = "events",
+    // holdplans = "holdplans",
+    // medlemskabs = "medlemskabs",
+    // nyheds = "nyheds",
+    // traeners = "traeners",
 
     // Queries (Start with _)
     _populateAll = "?" + "populate=*",
@@ -25,20 +24,12 @@ const
     // Collection
     exportObject = {
         ApiGet: {
-            allDisciplins: apiBase + disciplins + _populateAll,
-            allDvents: apiBase + events + _populateAll,
-            allHoldplans: apiBase + holdplans + _populateAll,
-            allMedlemskabs: apiBase + medlemskabs + _populateAll,
-            allnyheds: apiBase + nyheds + _populateAll,
-            singleBase: id => apiBase + id + _populateAll
+            singleBase: id => apiBase + id + _populateAll,
+            allBase: id => apiBase + id + _populateAll
         },
         ApiGetTest: {
-            disciplins: apiBaseTest + disciplins + _populateAll,
-            allDvents: apiBaseTest + events + _populateAll,
-            allHoldplans: apiBaseTest + holdplans + _populateAll,
-            allMedlemskabs: apiBaseTest + medlemskabs + _populateAll,
-            allnyheds: apiBaseTest + nyheds + _populateAll,
-            singleBase: id => apiBaseTest + id + _populateAll,
+            allBase: id => apiBaseTest + id + _populateAll,
+            singleBase: id => apiBaseTest + id + _populateAll
         }
     };
 

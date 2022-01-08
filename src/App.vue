@@ -4,15 +4,6 @@
     <router-link to="/blog">About</router-link>
   </div>
 
-  <h1>APP</h1>
-  <button @click="getSingle">TEST BTN</button>
-  <p>
-    {{loading}}
-  </p>
-  <p>
-    <!-- {{ tests }} -->
-  </p>
-
   <router-view />
   <the-footer></the-footer>
 </template>

@@ -98,8 +98,8 @@ const router = createRouter({
 
 router.beforeEach((to,from, next) => {
   // Here we change the meta description and the title before entering the route.
-  console.log("%c TO ","background-color: yellow; color: black;",to)
-  console.log(from)
+  console.log("%c Router: TO ","background-color: #66ff66; color: black;",to)
+  console.log("%c Router: FROM ","background-color: #66ff66; color: black;",from)
   if(to.meta.title) {
     document.title = "Aalborg Martial Arts - " + to.meta.title;
     if(to.meta.addOnTitle) {

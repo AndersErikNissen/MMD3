@@ -5,19 +5,17 @@
         <h2>Loading...</h2>
       </section>
     </transition>
-    <header v-if="getData && !loading">
-      <slot name="header" :getData="getData" :useAtt="useAtt" />
-    </header>
-    <main v-if="getData && !loading">
+
+    <main v-if="getAllData && !loading">
       <!-- Default Slot -->
-      <slot :getData="getData" :useAtt="useAtt" />
+      <slot :getAllData="getAllData"  />
     </main>
   </section>
 </template>
 
 <script>
 export default {
-  name: "UiHandlerSingleType",
+  name: "UiHandlerAllTypes",
   props: {
     path: {
       type: String,
@@ -29,20 +27,17 @@ export default {
     };
   },
   computed: {
-    getData() {
-      return this.$store.state.s.data[this.path];
-    },
-    useAtt() {
-        return this.getData.data.attributes;
+    getAllData() {
+      return this.$store.state.a.data[this.path];
     }
   },
   methods: {
-    async getSingle() {
+    async getAll() {
       // Same structure with Async/Await + Try/Catch, from Github: AndersErikNissen/portfolio-v3, the difference is in the $store.
-      if (!this.getData) {
+      if (!this.getAllData) {
         this.loading = true;
         try {
-          await this.$store.dispatch("s/getSingle", this.path);
+          await this.$store.dispatch("a/getAll", this.path);
         } catch (err) {
           this.loading = false;
           console.log("%c GET ERROR ", "background-color: red;", err);
@@ -53,7 +48,7 @@ export default {
     },
   },
   created() {
-    this.getSingle();
+    this.getAll();
   },
 };
 </script>
