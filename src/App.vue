@@ -10,13 +10,16 @@
     {{loading}}
   </p>
   <p>
-    {{ tests }}
+    <!-- {{ tests }} -->
   </p>
 
   <router-view />
+  <the-footer></the-footer>
 </template>
 
 <script>
+import theFooter from "./components/Common/TheFooter.vue"
+
 export default {
   name: "App",
   data() {
@@ -25,6 +28,9 @@ export default {
       tests: this.$store.state.s.data,
       loading: false
     };
+  },
+  components: {
+    theFooter,
   },
   computed: {
     getData() {
