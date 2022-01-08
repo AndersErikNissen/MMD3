@@ -42,8 +42,12 @@ const strapi_allTypes = {
         data: {}
     },
     getters: {
-        allTraeners: (state) => {
-            return state.data.traeners;
+        allMedlemskabsAttributes: (state) => {
+            let newArray = [];
+            state.data.medlemskabs.forEach(medlem => {
+                newArray.push(medlem.attributes)
+            });
+            return newArray;
         },
         allTraenersAttributes: (state) => {
             let newArray = [];

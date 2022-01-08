@@ -1,9 +1,9 @@
 <template>
-  <router-link :to="routerInfo" class="btn">
+  <a href="http://" target="_blank" class="btn">
     <span>
-      <slot></slot>
+      <slot> Link </slot>
     </span>
-  </router-link>
+  </a>
 </template>
 
 <script>

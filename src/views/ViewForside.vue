@@ -9,6 +9,9 @@
       <all-types path="traeners">
         <traener-container></traener-container>
       </all-types>
+      <all-types path="medlemskabs">
+        <the-medlemskab></the-medlemskab>
+      </all-types>
       <!-- Medlemsskaber -->
       <ui-header :dataObj="useAtt.kontakt"></ui-header>
     </template>
@@ -21,6 +24,7 @@ import allTypes from "../components/UI/UiHandlerAllTypes.vue";
 import heroHeader from "../components/UI/UiHeroHeader.vue";
 import uiHeader from "../components/UI/UiHeader.vue";
 import traenerContainer from "../components/Traener/TraenerBlockContainer.vue"
+import theMedlemskab from "../components/Common/TheMedlemskab.vue"
 export default {
   name: "ViewForside",
   props: {},
@@ -29,7 +33,8 @@ export default {
     allTypes,
     heroHeader,
     uiHeader,
-    traenerContainer
+    traenerContainer,
+    theMedlemskab,
   },
   data() {
     return {
