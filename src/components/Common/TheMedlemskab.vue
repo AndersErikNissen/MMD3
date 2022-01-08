@@ -20,15 +20,15 @@
       </div>
       <div class="medlemskab__card--center">
         <ul>
+          <li class="medlemskab__pris--after">
+            {{ medlemskab.prisafter }} DKK
+          </li>
           <li
             v-if="medlemskab.prisbefore != ''"
             class="medlemskab__pris--before"
           >
           <!-- &nbsp; used to create space on each side -->
            &nbsp;{{ medlemskab.prisbefore }} DKK&nbsp;
-          </li>
-          <li class="medlemskab__pris--after">
-            {{ medlemskab.prisafter }} DKK
           </li>
         </ul>
       </div>
