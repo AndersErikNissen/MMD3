@@ -1,16 +1,16 @@
 <template>
     <footer class="flex center">
         <div v-if="getData" class="footer__blocks flex row--se">
-            <ul-block :title="headers[0]" :arr="useAtt.tider"></ul-block>
-            <ul-block :title="headers[1]" :arr="useAtt.ama"></ul-block>
-            <ul-block :title="headers[2]" :kontakt="useAtt.kontakt"></ul-block>
-            <ul-block :title="headers[3]" :arr="useAtt.some"></ul-block>
+            <footer-block :title="headers[0]" :arr="useAtt.tider"></footer-block>
+            <footer-block :title="headers[1]" :arr="useAtt.ama"></footer-block>
+            <footer-block :title="headers[2]" :kontakt="useAtt.kontakt"></footer-block>
+            <footer-block :title="headers[3]" :arr="useAtt.some"></footer-block>
         </div>
     </footer>
 </template>
 
 <script>
-import ulBlock from "../UI/UiUlTextBlock.vue"
+import footerBlock from "./Footer/FooterTextBlock.vue"
 export default {
   name: "TheFooter",
   data() {
@@ -21,7 +21,7 @@ export default {
     };
   },
   components: {
-      ulBlock
+      footerBlock
   },
   computed: {
     getData() {
