@@ -1,29 +1,23 @@
 <template>
-    <footer>
-        <h2>Footer</h2>
-        <div v-if="getData">
-            <h3>GetData</h3>
-            <!-- {{getData}} -->
-            {{useAtt.tider}}
-            <ul-block :arr="useAtt.tider">
-                <template #default="{ li }">
-                    {{ li.tekst }}
-                </template>
-            </ul-block>
-            <ul-block :kontakt="useAtt.kontakt"></ul-block>
+    <footer class="flex center">
+        <div v-if="getData" class="footer__blocks flex row--se">
+            <ul-block :title="headers[0]" :arr="useAtt.tider"></ul-block>
+            <ul-block :title="headers[1]" :arr="useAtt.ama"></ul-block>
+            <ul-block :title="headers[2]" :kontakt="useAtt.kontakt"></ul-block>
+            <ul-block :title="headers[3]" :arr="useAtt.some"></ul-block>
         </div>
-
     </footer>
 </template>
 
 <script>
-import ulBlock from "../UI/UiUlBlock.vue"
+import ulBlock from "../UI/UiUlTextBlock.vue"
 export default {
   name: "TheFooter",
   data() {
     return {
         path: "the-footer",
         loading: false,
+        headers: ["Åbningstider", "Projekter", "Kontakt os", "Følg os"]
     };
   },
   components: {
@@ -58,4 +52,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    footer {
+        min-height: 30vh;
+        background-color: red;
+        .footer__blocks {
+            width: 100%;
+        }
+    }
 </style>
