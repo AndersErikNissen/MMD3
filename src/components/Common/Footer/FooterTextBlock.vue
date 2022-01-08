@@ -10,6 +10,20 @@
         </li>
       </ul>
     </div>
+    
+    <div v-if="arrLink">
+      <h3>
+        {{ title }}
+      </h3>
+      <ul class="clean">
+        <li v-for="li in arrLink" :key="li">
+          <a :href="li.link">
+            {{ li.tekst }}
+          </a>
+        </li>
+      </ul>
+    </div>
+
     <div v-if="kontakt">
       <!-- Kontakt is made uniqle to have more control since there are things like mailto / tel -->
       <h3>
@@ -40,6 +54,9 @@ export default {
   name: "UiUlTextBlock",
   props: {
     arr: {
+      type: Array,
+    },
+    arrLink: {
       type: Array,
     },
     kontakt: {

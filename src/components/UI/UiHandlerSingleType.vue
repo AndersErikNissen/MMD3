@@ -1,16 +1,17 @@
 <template>
   <section>
+    <h2>Single</h2>
     <transition>
       <section v-if="loading">
         <h2>Loading...</h2>
       </section>
     </transition>
     <header v-if="getData && !loading">
-      <slot name="header" :data="getData" />
+      <slot name="header" :getData="getData" :useAtt="useAtt" />
     </header>
     <main v-if="getData && !loading">
       <!-- Default Slot -->
-      <slot :data="getData" />
+      <slot :getData="getData" :useAtt="useAtt" />
     </main>
   </section>
 </template>
@@ -32,6 +33,9 @@ export default {
     getData() {
       return this.$store.state.s.data[this.path];
     },
+    useAtt() {
+        return this.getData.data.attributes;
+    }
   },
   methods: {
     async getSingle() {
@@ -43,6 +47,7 @@ export default {
         } catch (err) {
           this.loading = false;
           console.log("%c GET ERROR ", "background-color: red;", err);
+          this.$router.push("/error");
         }
         this.loading = false;
       }

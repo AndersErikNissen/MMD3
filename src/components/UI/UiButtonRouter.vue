@@ -22,7 +22,7 @@ export default {
           desc: url.desc,
         },
       },
-    };
+    }
   },
 };
 </script>

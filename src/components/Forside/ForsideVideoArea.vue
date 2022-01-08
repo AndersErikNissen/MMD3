@@ -1,12 +1,10 @@
 <template>
-    <div>
-        <h1>ERROR 404</h1>
-    </div>
+    <section></section>
 </template>
 
 <script>
 export default {
-    name: "",
+    name: "ForsideVideoArea",
     props: {},
     components: {},
     data(){
