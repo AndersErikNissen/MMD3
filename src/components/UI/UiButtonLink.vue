@@ -1,5 +1,5 @@
 <template>
-  <a href="http://" target="_blank" class="btn">
+  <a :href="url" target="_blank" class="btn">
     <span>
       <slot> Link </slot>
     </span>
@@ -12,19 +12,8 @@ export default {
   props: {
     url: {
       type: Object,
-      required: true,
+      // required: true,
     },
-  },
-  data() {
-    return {
-      routerInfo: {
-        path: url.path,
-        meta: {
-          title: url.title,
-          desc: url.desc,
-        },
-      },
-    };
   },
 };
 </script>

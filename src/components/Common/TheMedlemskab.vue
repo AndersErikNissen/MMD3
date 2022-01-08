@@ -1,11 +1,18 @@
 <template>
   <section>
+      <section>
+          <h2>
+              {{getInfo.title}}
+          </h2>
+          <p>
+              {{getInfo.beskrivelse}}
+          </p>
+      </section>
     <section
       v-for="medlemskab in getAtt"
       :key="medlemskab.title"
       :class="medlemskab.title == 'År' ? 'medlemskab__card--larger' : ''"
     >
-      {{ medlemskab }}
       <div class="medlemskab__card--header">
         <h3>
           {{ medlemskab.title }}
@@ -15,19 +22,20 @@
         <ul>
           <li
             v-if="medlemskab.prisbefore != ''"
-            class="medlemskab__pris--after"
+            class="medlemskab__pris--before"
           >
-            {{ medlemskab.prisbefore }}
+          <!-- &nbsp; used to create space on each side -->
+           &nbsp;{{ medlemskab.prisbefore }} DKK&nbsp;
           </li>
-          <li class="medlemskab__pris--before">
-            {{ medlemskab.prisafter }}
+          <li class="medlemskab__pris--after">
+            {{ medlemskab.prisafter }} DKK
           </li>
         </ul>
       </div>
       <div class="medlemskab__card--footer">
-          <a href="http://" target="_blank" class="btn">
-          {{medlemBtn}}
-          </a>
+          <link-btn>
+            {{medlemBtn}}
+          </link-btn>
       </div>
     </section>
   </section>
@@ -35,11 +43,13 @@
 
 <script>
 import { mapGetters } from "vuex";
-import 
+import linkBtn from "../UI/UiButtonLink.vue"
 export default {
   name: "TheMedlemskab",
   props: {},
-  components: {},
+  components: {
+      linkBtn,
+  },
   data() {
     return {
         medlemBtn: "Start dit Medlemskab"
@@ -48,7 +58,11 @@ export default {
   computed: {
     ...mapGetters({
       getAtt: "a/allMedlemskabsAttributes",
+      forside: "s/getForsideAttributes",
     }),
+    getInfo() {
+      return this.forside.medlemskab_info;
+    },
   },
   methods: {},
   created() {},
@@ -60,11 +74,13 @@ export default {
 <style lang="scss" scoped>
 .medlemskab__pris--before {
   color: var(--neutral-300);
+  text-decoration: line-through;
+  text-decoration-color: var(--neutral-300);
 }
 .medlemskab__pris--after {
   color: var(--neutral-900);
 }
 .medlemskab__card--larger {
-  background-color: var(--primary-500);
+  background-color: var(--info-500);
 }
 </style>
