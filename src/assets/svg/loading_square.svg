@@ -12,25 +12,25 @@
 
 		#two {
 			transform-origin: 15px 10px;
-			animation: 2s rotate1 infinite linear;
+			animation: 1s rotate1 infinite linear;
 		}
 
 		#four {
 			transform-origin: 15px 20px;
-			animation: 2s rotate2 infinite linear;
+			animation: 1s rotate2 infinite linear;
 		}
 
 		#five {
-			animation: 2s coverUp infinite linear;
+			animation: 1s coverUp infinite linear;
 		}
 
 		#loading__all {
 			transform-origin: center;
-			animation: 2s rotateAll infinite linear;
+			animation: 1s rotateAll infinite linear;
 		}
 
 		.squares {
-			animation: 2s coverSquares infinite linear;
+			animation: 1s coverSquares infinite linear;
 		}
 
 		@keyframes rotate1 {

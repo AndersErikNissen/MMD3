@@ -39,7 +39,7 @@ const routes = [
     }
   },
   {
-    path: '/nyheder:nyhed',
+    path: '/nyheder/:nyhed',
     name: 'NyhedTemplate',
     component: () => import('../views/ViewNyhedTemplate.vue'),
     props: true,
@@ -59,7 +59,7 @@ const routes = [
     }
   },
   {
-    path: '/discipliner:disciplin',
+    path: '/discipliner/:disciplin',
     name: 'DisciplinTemplate',
     component: () => import('../views/ViewDisciplinTemplate.vue'),
     props: true,

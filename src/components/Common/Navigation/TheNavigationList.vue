@@ -1,17 +1,19 @@
 <template>
   <section>
-      <ul>
-          <li v-for="nav in getNav" :key="nav.title">
-              {{nav.title}}
-          </li>
-      </ul>
+    <ul class="clean flex">
+      <li v-for="nav in getNav" :key="nav.title">
+        <router-link :to="nav.path">
+          {{ nav.title }}
+        </router-link>
+      </li>
+    </ul>
   </section>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 export default {
-  name: "",
+  name: "TheNavigationList",
   props: {},
   components: {},
   data() {
@@ -19,7 +21,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-        getNav: "getNavigation"
+      getNav: "getNavigation",
     }),
   },
   methods: {},
@@ -30,4 +32,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 </style>

@@ -14,6 +14,32 @@
     {
         "title": "Discipliner",
         "path": "/discipliner",
-        "dropdown": true
+        "dropdown": true,
+        "data": [
+            {
+                "title": "Kick N' Burn",
+                "path": "kicknburn"
+            },
+            {
+                "title": "MMA",
+                "path": "mma"
+            },
+            {
+                "title": "Boksning",
+                "path": "boksning"
+            },
+            {
+                "title": "Kick Boxning",
+                "path": "kickboxning"
+            },
+            {
+                "title": "Muay Thai",
+                "path": "muaythai"
+            },
+            {
+                "title": "Junior",
+                "path": "junior"
+            }
+        ]
     }
 ]

@@ -1,23 +1,20 @@
 <template>
   <section>
-      <!-- Placer Enten hamburger eller nav-list i slot, alt efter om desktop er true -->
-     <slot></slot>
+      
   </section>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 export default {
-  name: "TheNavigationBar",
+  name: "",
   props: {},
   components: {},
   data() {
-    return {};
+    return {}
   },
   computed: {
-    ...mapGetters({
-        getNav: "getNavigation"
-    }),
+    ...mapGetters({}),
   },
   methods: {},
   created() {},
