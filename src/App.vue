@@ -1,50 +1,44 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/blog">About</router-link>
-  </div>
-
+  <the-navigation></the-navigation>
   <router-view />
   <the-footer></the-footer>
 </template>
 
 <script>
 import theFooter from "./components/Common/TheFooter.vue"
+import theNavigation from "./components/Common/TheNavigation.vue"
 
 export default {
   name: "App",
   data() {
     return {
       path: "the-footer",
-      tests: this.$store.state.s.data,
-      loading: false
-    };
+    }
   },
   components: {
     theFooter,
+    theNavigation,
   },
   computed: {
-    getData() {
-      return this.$store.state.s.data.forside
-    }
+ 
   },
   methods: {
-    async getSingle() {
-      // Same structure with Async/Await + Try/Catch, from Github: AndersErikNissen/portfolio-v3, the difference is in the $store.
-      if (!this.getData) {
-        this.loading = true;
-        try {
-          await this.$store.dispatch("s/getSingle", this.path);
-        } catch(err) {
-          this.loading = false;
-          console.log("%c GET ERROR ", "background-color: red;", err)
-        }
-        this.loading = false;
-      }
+    resizeWindow: function () {
+      /* REUSED from Github: AndersErikNissen/portfolio-v3 */
+
+      // A debouncer could be used here, like lodash's debounce, or on could be created, but,
+      // since this will mostly be used when inspecting in the Browser, it shouldn't be that needed.
+      window.addEventListener("resize", () => {
+        this.$store.commit("RESIZE_WINDOW");
+      });
     },
   },
   created() {
-    this.getSingle();
+    /* REUSED from Github: AndersErikNissen/portfolio-v3 */
+
+    //Updates static data to store.state
+    this.$store.commit("STATIC_DATA");
+    this.resizeWindow();
   },
 };
 </script>

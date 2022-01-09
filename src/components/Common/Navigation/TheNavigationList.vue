@@ -1,26 +1,26 @@
 <template>
   <section>
-      <nav-list></nav-list>
-      <nav-bar></nav-bar>
+      <ul>
+          <li v-for="nav in getNav" :key="nav.title">
+              {{nav.title}}
+          </li>
+      </ul>
   </section>
 </template>
 
 <script>
-import navList from "./Navigation/TheNavigationList.vue"
-import navBar from "./Navigation/TheNavigationBar.vue"
 import { mapGetters } from "vuex";
 export default {
   name: "",
   props: {},
-  components: {
-      navList,
-      navBar,
-  },
+  components: {},
   data() {
     return {};
   },
   computed: {
-    ...mapGetters({}),
+    ...mapGetters({
+        getNav: "getNavigation"
+    }),
   },
   methods: {},
   created() {},

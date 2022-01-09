@@ -2,8 +2,6 @@
   <single-type :path="path">
     <template #header="{ useAtt }">
       <hero-header :dataObj="useAtt" :forside="true"></hero-header>
-      <h2>Use aTT</h2>
-      {{ useAtt }}
     </template>
 
     <template #default="{ useAtt }">
