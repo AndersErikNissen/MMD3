@@ -4,12 +4,12 @@
       <transition name="theHamburger">
         <nav-list-burger v-if="!screenType && clickObj.show"></nav-list-burger>
       </transition>
-      <router-link to="/" class="pack">
-        <div id="nav--logo">
-          <img :src="logoSvg" alt="" />
-        </div>
+      <router-link to="/" id="nav--logo">
+        <img :src="logoSvg" alt="" />
       </router-link>
+
       <nav-list v-if="screenType"></nav-list>
+      <nav-login></nav-login>
       <nav-hamburger
         v-if="!screenType"
         @click="clickHamburger()"
@@ -20,12 +20,14 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import navList from "./Navigation/TheNavigationList.vue";
 import navListBurger from "./Navigation/TheNavigationListHamburger.vue";
 import navBar from "./Navigation/TheNavigationBar.vue";
 import navHamburger from "./Navigation/TheNavigationHamburger.vue";
+import navLogin from "./Navigation/TheNavigationLogin.vue";
 import logoSvg from "@/assets/svg/logo.svg";
-import { mapState } from "vuex";
 export default {
   name: "",
   props: {},
@@ -34,6 +36,7 @@ export default {
     navListBurger,
     navBar,
     navHamburger,
+    navLogin,
   },
   data() {
     return {
@@ -89,6 +92,6 @@ export default {
   padding: calc(var(--padding) * 0.5);
 }
 #nav--logo {
-  max-width: 130px;
+  max-width: 100px;
 }
 </style>

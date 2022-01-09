@@ -54,11 +54,17 @@ export default {
   position: fixed;
   background-color: var(--neutral-500);
   inset: 0 0 0 0;
-  z-index: 0;
+  z-index: -1;
   color: white;
-
   & .nav--list__disciplinUl {
     margin-left: 1.5rem;
+  }
+  & a {
+    color: var(--neutral-100);
+    &:hover,
+    &:focus {
+      color: var(--primary-500);
+    }
   }
 }
 </style>

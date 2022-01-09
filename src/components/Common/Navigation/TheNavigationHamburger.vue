@@ -58,6 +58,9 @@ export default {
     height: 50px;
     padding: 2px;
 }
+svg {
+   cursor: pointer;
+}
 
 /* Here normal CSS is used for simplicty(No need for mixins for keyframes and so on) */
 .line3 {

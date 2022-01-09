@@ -46,9 +46,9 @@ body {
   font-size: 100%;
   line-height: 1.65;
   font-weight: 400;
-  color: var(--color-font);
+  // color: var(--color-font);
 
-  background-color: var(--color-bg-second);
+  background-color: var(--neutral-700);
 }
 
 picture,
@@ -150,9 +150,10 @@ p {
   }
 }
 a {
-  color: var(--neutral-200);
+  // color: var(--neutral-200);
   font-size: var(--a-size);
 
+  
   text-decoration: none;
   &.underline {
     text-decoration: underline;
@@ -164,6 +165,35 @@ a {
       transform: scale(1.1);
     }
   }
+}
+li {
+  &.spacing {
+    margin: 0 1rem 0 0;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  & .nav--linkStyle {
+    color: var(--neutral-100);
+    font-size: 1rem;
+    &:hover {
+      color: var(--primary-500);
+    }
+    &.nowrap {
+      white-space: nowrap;
+    }
+    &.btnLook {
+      background-color: var(--primary-500);
+      padding: .5rem .8rem;
+      border-radius: var(--edge);
+    }
+    &.btnLook:hover {
+      background-color: var(--info-400);
+      color: var(--neutral-100);
+    }
+  }
+  
 }
 .uppercase {
   text-transform: uppercase;
@@ -255,35 +285,49 @@ a {
 /*
   Common Items
 */
+.nav--dropdown--parent {
+  cursor: pointer;
+  & ul {
+    background-color: var(--neutral-700);
+
+  }
+}
+.nav--dropdown {
+  position: absolute;
+  display: none;
+   .nav--dropdown--parent:hover & {
+    display: block;
+  }
+}
 ul {
-  aside & li span {
-    font-size: clamp(1rem, 5vw, 1.2rem);
-  }
-  #nav &.desktop {
-    //Works on TheNavigation
-    & li {
-      margin: 0 1rem;
-      & a {
-        color: var(--color-a);
-      }
-    }
-    & li:last-of-type {
-      //Removes margin from the right most li in our navigation list.
-      margin-right: 0;
-    }
-  }
-  #nav & {
-    &.nav__mobile--ul a {
-      color: var(--color-a-second);
-    }
-    & li {
-      & a {
-        &.router-link-exact-active {
-          color: var(--color-a-active);
-        } 
-      }
-    }
-  }
+  // aside & li span {
+  //   font-size: clamp(1rem, 5vw, 1.2rem);
+  // }
+  // #nav &.desktop {
+  //   //Works on TheNavigation
+  //   & li {
+  //     margin: 0 1rem;
+  //     & a {
+  //       color: var(--color-a);
+  //     }
+  //   }
+  //   & li:last-of-type {
+  //     //Removes margin from the right most li in our navigation list.
+  //     margin-right: 0;
+  //   }
+  // }
+  // #nav & {
+  //   &.nav__mobile--ul a {
+  //     color: var(--color-a-second);
+  //   }
+  //   & li {
+  //     & a {
+  //       &.router-link-exact-active {
+  //         color: var(--color-a-active);
+  //       } 
+  //     }
+  //   }
+  // }
   &.clean {
     list-style-type: none;
     margin: 0;
@@ -369,7 +413,7 @@ a {
     display: block;
     width: 120%;
     height: 110%;
-    background: var(--neutral-800);
+    background: var(--info-400);
    
     background-repeat: no-repeat;
     background-size: 100%;

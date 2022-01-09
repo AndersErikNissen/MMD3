@@ -30,12 +30,12 @@ const routes = [
     }
   },
   {
-    path: '/blog',
-    name: 'Blog',
-    component: () => import('../views/ViewBlog.vue'),
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/ViewLogin.vue'),
     meta: {
-      title: dataMeta.blog.title,
-      description: dataMeta.blog.desc
+      title: dataMeta.login.title,
+      description: dataMeta.login.desc
     }
   },
   {
