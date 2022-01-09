@@ -36,7 +36,6 @@ export default {
   created() {
     /* REUSED from Github: AndersErikNissen/portfolio-v3 */
 
-    //Updates static data to store.state
     this.$store.commit("STATIC_DATA");
     this.resizeWindow();
   },

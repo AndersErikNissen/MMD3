@@ -1,0 +1,38 @@
+/*
+  #VUE TRANSITIONS
+  Help from: https://vuejs.org/v2/guide/transitions.html
+*/
+.opa-leave-active {
+    transition: opacity 1s;
+    & img {
+      transition: opacity 1s;
+    }
+  }
+  .opa-leave-to {
+    opacity: 0;
+    & img {
+      opacity: 0;
+    }
+  }
+  // Fade In and Out
+  .fade_InOut-enter-from {
+    opacity: 0;
+  }
+  .fade_InOut-enter-active {
+    transition: opacity .5s;
+  }
+  
+  .fade_InOut-leave-to {
+    opacity: 0;
+  }
+  .fade_InOut-leave-active {
+    transition: opacity .5s;
+  }
+
+//   The Loading
+.theLoading-leave-to {
+    transform: translateY(-100%);
+}
+.theLoading-leave-active {
+transition: transform 2s ease-out;
+}

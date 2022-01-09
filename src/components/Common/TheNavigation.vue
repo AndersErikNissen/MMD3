@@ -1,26 +1,39 @@
 <template>
   <section>
-      <nav-list></nav-list>
-      <nav-bar></nav-bar>
+    <nav-bar id="nav--bar">
+      <nav-list v-if="screenType"></nav-list>
+        
+    </nav-bar>
   </section>
 </template>
 
 <script>
-import navList from "./Navigation/TheNavigationList.vue"
-import navBar from "./Navigation/TheNavigationBar.vue"
-import { mapGetters } from "vuex";
+import navList from "./Navigation/TheNavigationList.vue";
+import navBar from "./Navigation/TheNavigationBar.vue";
+import { mapState } from "vuex";
 export default {
   name: "",
   props: {},
   components: {
-      navList,
-      navBar,
+    navList,
+    navBar,
   },
   data() {
-    return {};
+    return {
+        
+    }
   },
   computed: {
-    ...mapGetters({}),
+    ...mapState({
+        window: state => state.windowWidth
+    }),
+    screenType() {
+        let response = true;
+        if(this.window < 1024) {
+            response = false;
+        }
+        return response;
+    }
   },
   methods: {},
   created() {},
@@ -30,4 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#nav--bar {
+    background-color: blue;
+}
 </style>
