@@ -2,6 +2,8 @@
   <single-type :path="path">
     <template #header="{ useAtt }">
       <hero-header :dataObj="useAtt" :forside="true"></hero-header>
+      <h2>Use aTT</h2>
+      {{ useAtt }}
     </template>
 
     <template #default="{ useAtt }">
@@ -12,8 +14,7 @@
       <all-types path="medlemskabs">
         <the-medlemskab></the-medlemskab>
       </all-types>
-      <!-- Medlemsskaber -->
-      <ui-header :dataObj="useAtt.kontakt"></ui-header>
+      <kontakt-block></kontakt-block>
     </template>
   </single-type>
 </template>
@@ -23,8 +24,9 @@ import singleType from "../components/UI/UiHandlerSingleType.vue";
 import allTypes from "../components/UI/UiHandlerAllTypes.vue";
 import heroHeader from "../components/UI/UiHeroHeader.vue";
 import uiHeader from "../components/UI/UiHeader.vue";
-import traenerContainer from "../components/Traener/TraenerBlockContainer.vue"
-import theMedlemskab from "../components/Common/TheMedlemskab.vue"
+import traenerContainer from "../components/Traener/TraenerBlockContainer.vue";
+import theMedlemskab from "../components/Common/TheMedlemskab.vue";
+import kontaktBlock from "../components/Forside/ForsideKontaktBlock.vue";
 export default {
   name: "ViewForside",
   props: {},
@@ -35,11 +37,12 @@ export default {
     uiHeader,
     traenerContainer,
     theMedlemskab,
+    kontaktBlock,
   },
   data() {
     return {
       path: "single-type-forside",
-      imgPath: "traeners"
+      imgPath: "traeners",
     };
   },
   computed: {},
