@@ -2,7 +2,7 @@
   <section id="nav">
     <nav-bar id="nav--bar" class="flex row--sb">
       <transition name="theHamburger">
-        <nav-list-burger v-if="!screenType && clickObj.show"></nav-list-burger>
+        <nav-list-burger v-if="!screenType && clickObj.show" @clicked="clickHamburger()"></nav-list-burger>
       </transition>
       <router-link to="/" id="nav--logo">
         <img :src="logoSvg" alt="" />

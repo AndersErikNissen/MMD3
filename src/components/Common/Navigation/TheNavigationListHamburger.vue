@@ -1,18 +1,18 @@
 <template>
   <section class="nav--list__hamburger--container flex center column">
     <div class="flex center login">
-      <nav-login v-if="screenTypeMobile"></nav-login>
+      <nav-login @click="onClick()" v-if="screenTypeMobile"></nav-login>
     </div>
     <ul class="clean flex column">
       <li v-for="nav in getNav" :key="nav.title">
-        <router-link v-if="!nav.dropdown" :to="nav.path">
+        <router-link @click="onClick()" v-if="!nav.dropdown" :to="nav.path">
           <h4 class="clamp">
             {{ nav.title }}
           </h4>
         </router-link>
         <div v-else>
           <div class="flex row">
-            <router-link to="/discipliner">
+            <router-link @click="onClick()" to="/discipliner">
               <h4 class="clamp">
                 {{ nav.title }}
               </h4>
@@ -21,7 +21,7 @@
           </div>
           <ul class="clean nav--list__disciplinUl">
             <li v-for="disciplin in nav.data" :key="disciplin.title">
-              <router-link :to="disciplinPathBase + disciplin.path">
+              <router-link @click="onClick()" :to="disciplinPathBase + disciplin.path">
                 <h6 class="clamp">
                   {{ disciplin.title }}
                 </h6>
@@ -66,7 +66,12 @@ export default {
       return response;
     },
   },
-  methods: {},
+  methods: {
+    onClick() {
+      // Used so the parent "TheNavigation" know if we need to close the hamburger navigation.
+      this.$emit("clicked");
+    }
+  },
   created() {},
   mounted() {},
   watch() {},
