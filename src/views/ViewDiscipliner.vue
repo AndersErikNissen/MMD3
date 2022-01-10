@@ -27,7 +27,9 @@ export default {
     computed: {},
     methods: {},
     created () {},
-    mounted () {},
+    mounted () {
+        window.scrollTo(0, 0);
+    },
     watch() {}
 }
 </script>
