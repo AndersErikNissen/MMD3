@@ -7,9 +7,7 @@
       <template #default>
         <h2>Default</h2>
         <all-types path="disciplins">
-          <div v-for="disc in allDisciplins" :key="disc">
-              {{disc.header.title}}
-          </div>
+          <disciplin-card v-for="disc in allDisciplins" :key="disc" :dataObj="disc"></disciplin-card>
         </all-types>
       </template>
     </single-type>
@@ -22,6 +20,7 @@ import { mapGetters } from "vuex";
 import singleType from "../components/Layout/LayoutSingleType.vue";
 import allTypes from "../components/Layout/LayoutAllTypes.vue";
 import heroHeader from "../components/UI/UiHeroHeader.vue";
+import disciplinCard from "../components/Disciplin/DisciplinCard.vue"
 export default {
   name: "",
   props: {},
@@ -29,6 +28,7 @@ export default {
     singleType,
     allTypes,
     heroHeader,
+    disciplinCard
   },
   data() {
     return {

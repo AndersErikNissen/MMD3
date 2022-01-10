@@ -18,10 +18,10 @@ export default {
   data() {
     return {
       routerInfo: {
-        path: url.path,
+        path: this.url.path,
         meta: {
-          title: url.title,
-          desc: url.desc,
+          title: this.url.title,
+          desc: this.url.beskrivelse,
         },
       },
     };

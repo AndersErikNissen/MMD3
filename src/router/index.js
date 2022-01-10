@@ -17,7 +17,7 @@ const routes = [
     component: Forside,
     meta: {
       title: dataMeta.forside.title,
-      description: dataMeta.forside.desc
+      description: dataMeta.forside.beskrivelse
     }
   },
   {
@@ -26,7 +26,7 @@ const routes = [
     component: () => import('../views/ViewHoldplan.vue'),
     meta: {
       title: dataMeta.forside.title,
-      description: dataMeta.forside.desc
+      description: dataMeta.forside.beskrivelse
     }
   },
   {
@@ -35,7 +35,7 @@ const routes = [
     component: () => import('../views/ViewLogin.vue'),
     meta: {
       title: dataMeta.login.title,
-      description: dataMeta.login.desc
+      description: dataMeta.login.beskrivelse
     }
   },
   {
@@ -45,7 +45,7 @@ const routes = [
     props: true,
     meta: {
       title: dataMeta.nyheder.title,
-      description: dataMeta.nyheder.desc,
+      description: dataMeta.nyheder.beskrivelse,
       addOnTitle: null
     }
   },
@@ -55,7 +55,7 @@ const routes = [
     component: () => import('../views/ViewNyheder.vue'),
     meta: {
       title: dataMeta.nyheder.title,
-      description: dataMeta.nyheder.desc
+      description: dataMeta.nyheder.beskrivelse
     }
   },
   {
@@ -65,7 +65,7 @@ const routes = [
     props: true,
     meta: {
       title: dataMeta.discipliner.title,
-      description: dataMeta.discipliner.desc,
+      description: dataMeta.discipliner.beskrivelse,
       addOnTitle: null
     }
   },
@@ -75,7 +75,7 @@ const routes = [
     component: () => import('../views/ViewDiscipliner.vue'),
     meta: {
       title: dataMeta.discipliner.title,
-      description: dataMeta.discipliner.desc
+      description: dataMeta.discipliner.beskrivelse
     }
   },
   {
@@ -107,7 +107,7 @@ router.beforeEach((to,from, next) => {
     }
 
     // Help from https://stackoverflow.com/questions/2568760/is-it-possible-to-use-javascript-to-change-the-meta-tags-of-the-page/2568915
-    document.querySelector('meta[name="description"]').setAttribute('content', to.meta.description);
+    document.querySelector('meta[name="description"]').setAttribute('content', to.meta.beskrivelse);
   } else {
     document.title = "Aalborg Martial Arts";
   }
