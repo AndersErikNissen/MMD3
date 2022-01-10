@@ -4,9 +4,9 @@
       <img :src="heroImg" alt="" />
     </div>
     <section class="sbs--item flex center">
-      <section>
+      <section class="login__textContent--container">
         <div class="login__textArea">
-          <h1>Hej</h1>
+          <h1 class="clamp--small">Hej</h1>
           <h6 class="clamp">
             {{ textDesc }}
           </h6>
@@ -63,6 +63,18 @@
         >
           {{ btnText }}
         </normal-btn>
+        <div>
+          <p>Har du  allerede en bruger? Login 
+            <router-link to="/login" class="normal--link--white">
+              her
+            </router-link> !
+          </p>
+          <p class="quest__message" v-if="create == 'normal'">Eller prøv 14 dages gratis træning med et gæstelogin? Opret en gæstebruger  
+            <router-link to="/login/guest" class="normal--link--white">
+              her
+            </router-link> !
+          </p>
+        </div>
       </section>
 
       <transition name="fade_InOut">
@@ -86,7 +98,7 @@
 import heroImg from "@/assets/images/test.jpg";
 import normalBtn from "../components/UI/UiButton.vue";
 export default {
-  name: "ViewLogin",
+  name: "ViewLoginCreate",
   props: {
     create: {
       type: String,
@@ -159,10 +171,11 @@ export default {
 label {
   display: block;
 }
-input[type="email"] {
-  padding: 0.65rem;
-  border-radius: var(--edge);
-  border: solid 1px var(--neutral-800);
+.quest__message {
+  margin: 1rem 0;
+}
+.login__textContent--container {
+  max-width: 100%;
 }
 h6 {
   max-width: 20ch;
@@ -171,9 +184,9 @@ h6 {
   margin-bottom: 2rem;
   & p {
     margin: 0.6rem 0;
-    & i {
-      font-weight: 300;
-    }
+  }
+  & i {
+    font-weight: 300;
   }
 }
 

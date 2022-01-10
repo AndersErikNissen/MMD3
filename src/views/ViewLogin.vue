@@ -1,61 +1,64 @@
 <template>
-  <div>
-    {{create}}
-    <h1>LOGIN</h1>
-    <div v-if="created == 'normal'">
-      <h1>
-        NORMAL
-      </h1>
+  <section class="sideBySide">
+    <div class="sbs--item">
+      <img :src="heroImg" alt="Hero Billede" />
     </div>
-    <div v-if="created == 'quest'">
-      <h1>
-        QUEST
-      </h1>
-    </div>
-
-
-
-
-
-    <div class="email__form--container">
-      <!-- A dummy form, it's not doing anything, it's more to show what would be used -->
-      <!-- <form action=""> -->
-      <input
-        type="email"
-        name="emailForm"
-        id="email__form"
-        :placeholder="placeholderEmail"
-        @keydown.enter.prevent="confirmSubmit"
-      />
-      <!--
-            Using Normal since it's a dummy, but could also use: 
-            <input @click.prevent="confirmSubmit" type="button" :value="gratis" class="btn" />
-         -->
-      <normal-btn @click="confirmSubmit">
-        {{ gratis }}
-      </normal-btn>
-      <!-- </form> -->
-      <transition name="fade_InOut">
-        <div
-          v-if="submitted"
-          class="email__confirmation--container flex center"
-        >
-          <div>
-            {{ emailConfirm }}
-          </div>
+    <section class="flex center sbs--item">
+      <section class="login__textContent">
+        <div class="login__textArea">
+          <h1 class="clamp--small">Velkommen tilbage</h1>
+          <h6 class="clamp">
+            {{ textDesc }}
+          </h6>
         </div>
-      </transition>
-    </div>
-  </div>
+
+        <div class="login__fakeFormArea">
+          <!-- "Fake Form" -->
+          <label for="email">Email</label>
+          <input
+            v-model="inputEmail"
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Din@email.dk"
+          />
+          <div>
+            <label for="adgangskode">Adgangskode</label>
+            <input
+              v-model="inputAdgangskode"
+              type="text"
+              name="adgangskode"
+              id="adgangskode"
+              placeholder="Adgangskode"
+            />
+          </div>
+          <normal-btn
+            @click="
+              confirmSubmit();
+              errorSubmit();
+            "
+          >
+            Login
+          </normal-btn>
+          <p>Har du ikke allerede en bruger? Opret en bruger 
+            <router-link to="/login/normal" class="normal--link--white">
+              her
+            </router-link> !
+          </p>
+        </div>
+      </section>
+    </section>
+  </section>
 </template>
 
 <script>
+import heroImg from "@/assets/images/test.jpg";
 import normalBtn from "../components/UI/UiButton.vue";
 export default {
   name: "ViewLogin",
   props: {
     create: {
-      type: String
+      type: String,
     },
   },
   components: {
@@ -64,10 +67,10 @@ export default {
   data() {
     return {
       submitted: false,
-      emailConfirm: "Emailadresse modtaget!",
-      placeholderEmail: "Email...",
-      gratis: "Gratis Prøvetræning",
-    }
+      error: false,
+      heroImg,
+      textDesc: "Login her og få adgang til holdtræningerne!",
+    };
   },
   computed: {},
   methods: {
@@ -76,6 +79,19 @@ export default {
       setTimeout(() => {
         this.submitted = false;
       }, 3000);
+    },
+    errorSubmit() {
+      if (
+        this.inputEmail == undefined ||
+        this.inputFornavn == undefined ||
+        this.inputEfternavn == undefined ||
+        this.inputAdgangskode == undefined
+      ) {
+        this.error = true;
+        setTimeout(() => {
+          this.error = false;
+        }, 3000);
+      }
     },
   },
   created() {},
@@ -87,13 +103,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-input[type="email"] {
-  padding: 0.65rem;
-  border-radius: var(--edge);
-  border: solid 1px var(--neutral-800);
+h6 {
+  margin: 1rem 0;
 }
-::placeholder {
-  color: var(--neutral-800);
+.login__fakeFormArea {
+  max-width: 400px;
+}
+.login__textContent {
+  padding: 1rem;
 }
 .email__confirmation--container {
   position: fixed;

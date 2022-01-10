@@ -127,14 +127,17 @@ h6 {
 label {
   font-size: 1.2rem;
   margin: .2rem 0;
+  display: block;
 }
 input[type="text"] {
+  display: inline-block;
   background-color: transparent;
-  border: 1px solid var(--neutral-100);
+  border: 2.5px solid var(--neutral-100);
   border-radius: var(--edge);
   padding: .5rem;
   color: var(--neutral-100);
   width: 100%;
+  min-width: 150px;
   &::placeholder {
     color: var(--neutral-400);
   }
@@ -240,6 +243,14 @@ li {
       color: var(--neutral-100);
     }
   }
+  &--white {
+    color: var(--neutral-100);
+    text-decoration: underline;
+    font-size: 1rem;
+    &:hover {
+      color: var(--primary-500);
+    }
+  }
 }
 
 /* 
@@ -296,12 +307,15 @@ li {
   &.column {
     flex-direction: column;
     &--sb {
+      flex-direction: column;
       justify-content: space-between;
     }
     &--sa {
+      flex-direction: column;
       justify-content: space-around;
     }
     &--se {
+      flex-direction: column;
       justify-content: space-evenly;
     }
   }
@@ -309,15 +323,19 @@ li {
     flex-direction: row;
     align-items: center;
     &--sb {
+      flex-direction: row;
       justify-content: space-between;
     }
     &--sa {
+      flex-direction: row;
       justify-content: space-around;
     }
     &--se {
+      flex-direction: row;
       justify-content: space-evenly;
     }
     &--top {
+      flex-direction: row;
       align-items: flex-start;
     }
   }
