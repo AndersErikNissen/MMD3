@@ -189,11 +189,18 @@ li {
       border-radius: var(--edge);
     }
     &.btnLook:hover {
-      background-color: var(--info-400);
+      background-color: var(--primary-600);
       color: var(--neutral-100);
     }
   }
   
+}
+.nav__dropdownArrow {
+  width: 1rem;
+  margin-left: .4rem;
+  .nav--dropdown--parent:hover & {
+    transform: rotate(180deg);
+  }
 }
 .uppercase {
   text-transform: uppercase;
@@ -413,7 +420,7 @@ a {
     display: block;
     width: 120%;
     height: 110%;
-    background: var(--info-400);
+    background: var(--primary-600);
    
     background-repeat: no-repeat;
     background-size: 100%;

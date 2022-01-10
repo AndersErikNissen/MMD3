@@ -9,7 +9,7 @@
       </router-link>
 
       <nav-list v-if="screenType"></nav-list>
-      <nav-login></nav-login>
+      <nav-login v-if="!screenTypeMobile"></nav-login>
       <nav-hamburger
         v-if="!screenType"
         @click="clickHamburger()"
@@ -56,6 +56,13 @@ export default {
       let response = true;
       if (this.window < 1024) {
         response = false;
+      }
+      return response;
+    },
+    screenTypeMobile() {
+      let response = false;
+      if (this.window < 468) {
+        response = true;
       }
       return response;
     },

@@ -6,9 +6,16 @@
           {{ nav.title }}
         </router-link>
         <div v-else class="nav--dropdown--parent">
-          <p class="nav--linkStyle">
-            {{ nav.title }}
-          </p>
+          <div class="flex row">
+            <router-link to="/discipliner" class="nav--linkStyle">
+              {{ nav.title }}
+            </router-link>
+            <img
+              class="nav__dropdownArrow"
+              :src="dropArrow"
+              alt="Nedad vendende pil"
+            />
+          </div>
           <ul class="clean nav--dropdown">
             <li v-for="disciplin in nav.data" :key="disciplin.title">
               <router-link
@@ -27,12 +34,15 @@
 
 <script>
 import { mapGetters } from "vuex";
+import dropArrow from "@/assets/svg/dropdown_arrow.svg";
 export default {
   name: "TheNavigationList",
   props: {},
   components: {},
   data() {
-    return {};
+    return {
+      dropArrow,
+    };
   },
   computed: {
     ...mapGetters({
@@ -47,5 +57,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>
