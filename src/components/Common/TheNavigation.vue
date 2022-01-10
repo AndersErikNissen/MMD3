@@ -83,7 +83,7 @@ export default {
   },
   created() {},
   mounted() {},
-  watch() {},
+  watch: {},
 };
 </script>
 

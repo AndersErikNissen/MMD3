@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <div>
+  <section class="sideBySide">
+    <div class="sbs--item">
       <h1>
         {{ dataObj.hero.title }}
       </h1>
@@ -11,11 +11,19 @@
         <span> Gratis Prøvetræning </span>
       </router-link>
     </div>
-    <div v-if="!hero && !template">
-      <img :src="require('@/assets/images/' + linkPath + dataObj.hero.link)" alt="" />
+    <div class="sbs--item" v-if="!hero && !template">
+      <img
+        :src="require('@/assets/images/' + linkPath + '/' + dataObj.hero.link)"
+        alt=""
+      />
     </div>
-    <div v-if="!hero && template">
-      <img :src="require('@/assets/images/' + linkPath + dataObj.linkarea.header)" alt="" />
+    <div class="sbs--item" v-if="!hero && template">
+      <img
+        :src="
+          require('@/assets/images/' + linkPath + '/' + dataObj.linkarea.header)
+        "
+        alt=""
+      />
     </div>
   </section>
 </template>
@@ -29,7 +37,7 @@ export default {
       required: true,
     },
     linkPath: {
-      type: String
+      type: String,
     },
     hero: {
       type: Boolean,
@@ -46,7 +54,7 @@ export default {
   methods: {},
   created() {},
   mounted() {},
-  watch() {},
+  watch: {},
 };
 </script>
 

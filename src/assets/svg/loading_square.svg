@@ -12,25 +12,25 @@
 
 		#two {
 			transform-origin: 15px 10px;
-			animation: 1s rotate1 infinite linear;
+			animation: 1.5s rotate1 infinite linear;
 		}
 
 		#four {
 			transform-origin: 15px 20px;
-			animation: 1s rotate2 infinite linear;
+			animation: 1.5s rotate2 infinite linear;
 		}
 
 		#five {
-			animation: 1s coverUp infinite linear;
+			animation: 1.5s coverUp infinite linear;
 		}
 
 		#loading__all {
 			transform-origin: center;
-			animation: 1s rotateAll infinite linear;
+			animation: 1.5s rotateAll infinite linear;
 		}
 
 		.squares {
-			animation: 1s coverSquares infinite linear;
+			animation: 1.5s coverSquares infinite linear;
 		}
 
 		@keyframes rotate1 {
@@ -97,10 +97,10 @@
 			}
 
 			60% {
-				transform: rotate(90deg);
+				transform: rotate(-180deg);
 			}
 			100% {
-				transform: rotate(90deg);
+				transform: rotate(-180deg);
 			}
 			/* 60% {
 				transform: rotate(-180deg);

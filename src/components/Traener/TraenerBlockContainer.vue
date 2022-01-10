@@ -2,14 +2,15 @@
   <section class="forside__traener--info flex center column">
     <div v-if="forside">
       <h2>
-        {{getInfo.title}}
+        {{ getInfo.title }}
       </h2>
       <p>
-        {{getInfo.beskrivelse}}
+        {{ getInfo.beskrivelse }}
       </p>
     </div>
     <section class="traener__all--container flex row--se">
       <traener-block
+        :forside="true"
         v-for="traener in allAtt"
         :key="traener.id"
         :dataObj="traener"
@@ -44,7 +45,7 @@ export default {
   methods: {},
   created() {},
   mounted() {},
-  watch() {},
+  watch: {},
 };
 </script>
 

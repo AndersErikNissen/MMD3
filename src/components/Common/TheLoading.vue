@@ -25,7 +25,7 @@ export default {
   methods: {},
   created() {},
   mounted() {},
-  watch() {},
+  watch: {},
 };
 </script>
 

@@ -53,9 +53,13 @@ export default {
   methods: {},
   created() {},
   mounted() {},
-  watch() {},
+  watch: {},
 };
 </script>
 
 <style lang="scss" scoped>
+.nav--dropdown {
+  padding: .5rem;
+  border-radius: var(--edge);
+}
 </style>

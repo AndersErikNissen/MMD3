@@ -1,8 +1,17 @@
 <template>
   <all-types path="disciplins">
-    <hero-header :template="true" :linkPath="linkPath" :dataObj="findData"></hero-header>
- 
+    <hero-header
+      :template="true"
+      :linkPath="linkPath"
+      :dataObj="findData"
+    ></hero-header>
+
     {{ findData }}
+    <template-focus
+      :dataObj="findData.fokus"
+      :imgPath="findData.linkarea.fokus"
+    ></template-focus>
+    <template-traeners :dataObj="findData.traeners.data"></template-traeners>
 
     <section v-if="!findData">
       Noget gik galt, vi har ikke en Disciplin med det navn? Prøv i stedet:
@@ -11,10 +20,12 @@
 </template>
 
 <script>
+import { mapGetters, mapState } from "vuex";
+
 import allTypes from "../components/Layout/LayoutAllTypes.vue";
 import heroHeader from "../components/UI/UiHeroHeader.vue";
-
-import { mapGetters, mapState } from "vuex";
+import templateFocus from "../components/Disciplin/DisciplinTemplateFokus.vue";
+import templateTraeners from "../components/Disciplin/DisciplinTraeners.vue";
 export default {
   name: "ViewDisciplinTemplate",
   props: {
@@ -25,10 +36,12 @@ export default {
   components: {
     allTypes,
     heroHeader,
+    templateFocus,
+    templateTraeners,
   },
   data() {
     return {
-        linkPath: "disciplins"
+      linkPath: "disciplins",
     };
   },
   computed: {
@@ -39,13 +52,6 @@ export default {
       allDisc: (state) => state.a.data.disciplins,
     }),
     findData() {
-      console.log(
-        this.allDisc.find(
-          (disc) =>
-            disc.attributes.disciplin_kategoris.data.attributes.slug ===
-            this.disciplin
-        )
-      );
       let returnValue = false,
         find = undefined;
       if (this.allDisc) {
@@ -56,13 +62,14 @@ export default {
         );
         returnValue = find.attributes;
       }
+      console.log(returnValue);
       return returnValue;
     },
   },
   methods: {},
   created() {},
   mounted() {},
-  watch() {},
+  watch: {},
 };
 </script>
 

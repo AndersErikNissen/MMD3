@@ -10,11 +10,11 @@
         :alt="'Billede træneren, ' + dataObj.navn"
       />
     </div>
-    <div>
+    <div class="flex center column">
       <h4>
         {{ dataObj.navn }}
       </h4>
-      <ul class="clean">
+      <ul v-if="forside" class="clean">
         <li v-for="disciplin in dataObj.disciplin_kategorises.data" :key="disciplin">
           {{ disciplin.attributes.kategori }}
         </li>
@@ -32,6 +32,9 @@ export default {
       type: Object,
       required: true
     },
+    forside: {
+      type: Boolean
+    }
   },
   components: {},
   data() {

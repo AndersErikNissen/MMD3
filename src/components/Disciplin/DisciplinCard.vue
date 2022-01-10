@@ -1,11 +1,11 @@
 <template>
-  <section class="disciplin__card--container flex row--se">
-    <div class="disciplin__card--half--text flex column">
+  <section class="disciplin__card--container sideBySide">
+    <div class="sbs--item flex column">
       <h2>
-        {{ dataObj.header.title }}
+        {{ dataObj.hero.title }}
       </h2>
       <p>
-        {{ dataObj.header.beskrivelse }}
+        {{ dataObj.hero.beskrivelse }}
       </p>
 
       <div class="flex row">
@@ -15,11 +15,11 @@
         </router-link>
       </div>
     </div>
-    <div class="disciplin__card--half">
+    <div class="sbs--item">
       <!-- Not to self: For some reason webpack need some of the path as a string (From this post: https://coderedirect.com/questions/230214/vue-js-dynamic-image-src-with-webpack-require-not-working) -->
       <img
         :src="require('@/assets/images/disciplins/' + dataObj.linkarea.header)"
-        :alt="'Billede til disciplinen: ' + dataObj.header.title"
+        :alt="'Billede til disciplinen: ' + dataObj.hero.title"
       />
     </div>
   </section>
@@ -49,21 +49,13 @@ export default {
   methods: {},
   created() {},
   mounted() {},
-  watch() {},
+  watch: {},
 };
 </script>
 
 <style lang="scss" scoped>
 .disciplin__card--container {
-    justify-content: center;
     color: white;
-    & .disciplin__card--half,
-    & .disciplin__card--half--text {
-        width: 50%;
-    }
-    & .disciplin__card--half--text {
-        justify-content: center;
-    }
     & .disciplin__router--holdplan {
         color: white;
         text-decoration-line: underline;

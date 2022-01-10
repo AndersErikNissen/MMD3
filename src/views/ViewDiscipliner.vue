@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       path: "single-type-disciplin",
-      linkPath: "disciplins/"
+      linkPath: "disciplins"
     };
   },
   computed: {
@@ -45,7 +45,7 @@ export default {
   mounted() {
     window.scrollTo(0, 0);
   },
-  watch() {},
+  watch: {},
 };
 </script>
 
