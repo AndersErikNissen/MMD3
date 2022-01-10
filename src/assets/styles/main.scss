@@ -46,7 +46,7 @@ body {
   font-size: 100%;
   line-height: 1.65;
   font-weight: 400;
-  // color: var(--color-font);
+  color: var(--neutral-100);
 
   background-color: var(--neutral-700);
 }
@@ -124,6 +124,25 @@ h6 {
   }
 }
 
+label {
+  font-size: 1.2rem;
+  margin: .2rem 0;
+}
+input[type="text"] {
+  background-color: transparent;
+  border: 1px solid var(--neutral-100);
+  border-radius: var(--edge);
+  padding: .5rem;
+  color: var(--neutral-100);
+  width: 100%;
+  &::placeholder {
+    color: var(--neutral-400);
+  }
+  &.margin--right {
+    margin-right: 1rem;
+  }
+}
+
 /*
     Text Sizing
 */
@@ -168,7 +187,13 @@ a {
 }
 li {
   &.spacing {
-    margin: 0 1rem 0 0;
+    &--login {
+      margin: 0 1rem 0 0;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    margin: 0 2rem 0 0;
     &:last-child {
       margin-right: 0;
     }
@@ -206,15 +231,20 @@ li {
   text-transform: uppercase;
 }
 
-
-
+// Normal Links
+.normal--link {
+  &--red {
+    color: var(--primary-500);
+    text-decoration: underline;
+    &:hover {
+      color: var(--neutral-100);
+    }
+  }
+}
 
 /* 
   Global Class'
 */
-
-
-
 .pack {
   width: 100%;
   height: auto;
@@ -430,7 +460,7 @@ a {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  min-width: 20ch;
+  min-width: 30ch;
   padding: .8rem;
   margin: 1rem 0;
   

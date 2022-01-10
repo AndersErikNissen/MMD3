@@ -12,7 +12,7 @@
       :imgPath="findData.linkarea.fokus"
     ></template-focus>
     <template-traeners :dataObj="findData.traeners.data"></template-traeners>
-
+    <template-intro :dataObj="findData.intro"></template-intro>
     <section v-if="!findData">
       Noget gik galt, vi har ikke en Disciplin med det navn? Prøv i stedet:
     </section>
@@ -26,6 +26,7 @@ import allTypes from "../components/Layout/LayoutAllTypes.vue";
 import heroHeader from "../components/UI/UiHeroHeader.vue";
 import templateFocus from "../components/Disciplin/DisciplinTemplateFokus.vue";
 import templateTraeners from "../components/Disciplin/DisciplinTraeners.vue";
+import templateIntro from "../components/Disciplin/DisciplinTemplateIntro.vue"
 export default {
   name: "ViewDisciplinTemplate",
   props: {
@@ -38,6 +39,7 @@ export default {
     heroHeader,
     templateFocus,
     templateTraeners,
+    templateIntro
   },
   data() {
     return {

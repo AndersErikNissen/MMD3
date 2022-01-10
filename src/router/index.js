@@ -30,8 +30,18 @@ const routes = [
     }
   },
   {
+    path: '/login/:create',
+    name: 'LoginCreate',
+    component: () => import('../views/ViewLoginCreate.vue'),
+    props:true,
+    meta: {
+      title: dataMeta.login.title,
+      description: dataMeta.login.beskrivelse
+    }
+  },
+  {
     path: '/login',
-    name: 'login',
+    name: 'Login',
     component: () => import('../views/ViewLogin.vue'),
     meta: {
       title: dataMeta.login.title,
@@ -46,7 +56,7 @@ const routes = [
     meta: {
       title: dataMeta.nyheder.title,
       description: dataMeta.nyheder.beskrivelse,
-      addOnTitle: null
+      // addOnTitle: null
     }
   },
   {
@@ -66,7 +76,7 @@ const routes = [
     meta: {
       title: dataMeta.discipliner.title,
       description: dataMeta.discipliner.beskrivelse,
-      addOnTitle: null
+      // addOnTitle: null
     }
   },
   {
@@ -103,6 +113,7 @@ router.beforeEach((to,from, next) => {
   if(to.meta.title) {
     document.title = "Aalborg Martial Arts - " + to.meta.title;
     if(to.meta.addOnTitle) {
+      // Not used in this version (OUT OF SCOPE)
       document.title += " - " + to.meta.addOnTitle;
     }
 

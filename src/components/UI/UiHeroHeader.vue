@@ -7,7 +7,7 @@
       <p class="bold">
         {{ dataObj.hero.beskrivelse }}
       </p>
-      <router-link to="/login/gratis" class="btn">
+      <router-link to="/login/quest" class="btn">
         <span> Gratis Prøvetræning </span>
       </router-link>
     </div>

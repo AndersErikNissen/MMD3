@@ -1,5 +1,22 @@
 <template>
   <div>
+    {{create}}
+    <h1>LOGIN</h1>
+    <div v-if="created == 'normal'">
+      <h1>
+        NORMAL
+      </h1>
+    </div>
+    <div v-if="created == 'quest'">
+      <h1>
+        QUEST
+      </h1>
+    </div>
+
+
+
+
+
     <div class="email__form--container">
       <!-- A dummy form, it's not doing anything, it's more to show what would be used -->
       <!-- <form action=""> -->
@@ -36,7 +53,11 @@
 import normalBtn from "../components/UI/UiButton.vue";
 export default {
   name: "ViewLogin",
-  props: {},
+  props: {
+    create: {
+      type: String
+    },
+  },
   components: {
     normalBtn,
   },

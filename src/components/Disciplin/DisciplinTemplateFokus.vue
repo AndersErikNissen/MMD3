@@ -11,7 +11,10 @@
       </div>
     </section>
     <div class="sbs--item">
-      <img :src="require('@/assets/images/disciplins/' + imgPath)" :alt="'Billede til disciplinen:' + dataObj.title" />
+      <img
+        :src="require('@/assets/images/disciplins/' + imgPath)"
+        :alt="'Billede til disciplinen:' + dataObj.title"
+      />
     </div>
     <section class="sbs--item">
       <div v-for="obj in areaTwo" :key="obj.title">
@@ -35,8 +38,8 @@ export default {
       required: true,
     },
     imgPath: {
-        type: String
-    }
+      type: String,
+    },
   },
   components: {},
   data() {
@@ -45,15 +48,19 @@ export default {
   computed: {
     areaOne() {
       let arr = [];
-      for (let i = 0; i < 2; i++) {
-        arr.push(this.dataObj[i]);
+      if (this.dataObj.length > 0) {
+        for (let i = 0; i < 2; i++) {
+          arr.push(this.dataObj[i]);
+        }
       }
       return arr;
     },
     areaTwo() {
       let arr = [];
-      for (let i = 2; i < 4; i++) {
-        arr.push(this.dataObj[i]);
+      if (this.dataObj.length > 0) {
+        for (let i = 2; i < 4; i++) {
+          arr.push(this.dataObj[i]);
+        }
       }
       return arr;
     },
