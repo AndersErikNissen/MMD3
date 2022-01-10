@@ -2,10 +2,9 @@
   <main>
     <single-type :path="path">
       <template #header="{ useAtt }">
-        <hero-header :dataObj="useAtt"></hero-header>
+        <hero-header :linkPath="linkPath" :dataObj="useAtt"></hero-header>
       </template>
       <template #default>
-        <h2>Default</h2>
         <all-types path="disciplins">
           <disciplin-card v-for="disc in allDisciplins" :key="disc" :dataObj="disc"></disciplin-card>
         </all-types>
@@ -22,7 +21,7 @@ import allTypes from "../components/Layout/LayoutAllTypes.vue";
 import heroHeader from "../components/UI/UiHeroHeader.vue";
 import disciplinCard from "../components/Disciplin/DisciplinCard.vue"
 export default {
-  name: "",
+  name: "ViewDiscipliner",
   props: {},
   components: {
     singleType,
@@ -33,6 +32,7 @@ export default {
   data() {
     return {
       path: "single-type-disciplin",
+      linkPath: "disciplins/"
     };
   },
   computed: {

@@ -7,6 +7,15 @@
       <p class="bold">
         {{ dataObj.hero.beskrivelse }}
       </p>
+      <router-link to="/login/gratis" class="btn">
+        <span> Gratis Prøvetræning </span>
+      </router-link>
+    </div>
+    <div v-if="!hero && !template">
+      <img :src="require('@/assets/images/' + linkPath + dataObj.hero.link)" alt="" />
+    </div>
+    <div v-if="!hero && template">
+      <img :src="require('@/assets/images/' + linkPath + dataObj.linkarea.header)" alt="" />
     </div>
   </section>
 </template>
@@ -18,20 +27,23 @@ export default {
     dataObj: {
       type: Object,
       required: true,
-    }
+    },
+    linkPath: {
+      type: String
+    },
+    hero: {
+      type: Boolean,
+    },
+    template: {
+      type: Boolean,
+    },
   },
-  components: {
-
-  },
+  components: {},
   data() {
-    return {
-     
-    }
+    return {};
   },
   computed: {},
-  methods: {
-    
-  },
+  methods: {},
   created() {},
   mounted() {},
   watch() {},
@@ -39,5 +51,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>
