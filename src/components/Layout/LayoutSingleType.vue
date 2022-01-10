@@ -8,10 +8,10 @@
     <header v-if="getData && !loading">
       <slot name="header" :getData="getData" :useAtt="useAtt" />
     </header>
-    <main v-if="getData && !loading">
+    <section v-if="getData && !loading">
       <!-- Default Slot -->
       <slot :getData="getData" :useAtt="useAtt" />
-    </main>
+    </section>
   </section>
 </template>
 

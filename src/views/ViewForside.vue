@@ -5,7 +5,7 @@
     </transition>
     <single-type :path="path">
       <template #header="{ useAtt }">
-        <hero-header :dataObj="useAtt" :forside="true"></hero-header>
+        <hero-header :dataObj="useAtt"></hero-header>
       </template>
 
       <template #default="{ useAtt }">

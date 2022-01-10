@@ -42,6 +42,7 @@ export default {
   data() {
     return {
       dropArrow,
+      disciplinPathBase: "/discipliner/"
     };
   },
   computed: {

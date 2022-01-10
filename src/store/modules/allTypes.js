@@ -24,9 +24,13 @@ const strapi_allTypes = {
             });
             return newArray;
         },
-        // checkAllForside: (state,getters,rootState,rootGetters) => {
-        
-        // }
+        allDisciplinsAttributes: (state) => {
+            let newArray = [];
+            state.data.disciplins.forEach(disciplin => {
+                newArray.push(disciplin.attributes)
+            });
+            return newArray;
+        },
     },
     mutations: {
         ADD_ALL: (state, {key, value}) => {

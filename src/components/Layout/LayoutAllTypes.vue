@@ -6,10 +6,10 @@
       </section>
     </transition>
 
-    <main v-if="getAllData && !loading">
+    <section v-if="getAllData && !loading">
       <!-- Default Slot -->
       <slot :getAllData="getAllData"  />
-    </main>
+    </section>
   </section>
 </template>
 
