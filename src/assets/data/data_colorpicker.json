@@ -1,5 +1,8 @@
-
 [
+    {
+        "emne": "Generel",
+        "color": "#A5124C"
+    },
     {
         "emne": "KickNBurn",
         "color": "#207BC3"
@@ -9,16 +12,12 @@
         "color": "#003158"
     },
     {
-        "emne":  "Boksning",
-        "color":"#164306"
+        "emne": "Boksning",
+        "color": "#164306"
     },
     {
-        "emne":"MMA",
+        "emne": "MMA",
         "color": "#782525"
-    },
-    {
-        "emne": "Generel",
-        "color": "#A5124C"
     },
     {
         "emne": "Kickboxning",
@@ -28,5 +27,4 @@
         "emne": "Junior",
         "color": "#F39C12"
     }
-    
 ]
