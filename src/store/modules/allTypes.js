@@ -31,6 +31,13 @@ const strapi_allTypes = {
             });
             return newArray;
         },
+        allNyhedsAttributes: (state) => {
+            let newArray = [];
+            state.data.nyheds.forEach(nyhed => {
+                newArray.push(nyhed.attributes)
+            });
+            return newArray;
+        },
     },
     mutations: {
         ADD_ALL: (state, {key, value}) => {

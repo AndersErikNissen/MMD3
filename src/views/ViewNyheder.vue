@@ -1,18 +1,33 @@
 <template>
-    <div></div>
+    <section>
+        <h1>Nyheder</h1>
+        <!-- Intro with filter -->
+        <!-- Color Picker for component for each Nyhed -->
+        <all-types path="nyheds">
+            {{allNyheds}}
+        </all-types>
+    </section>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import allTypes from "../components/Layout/LayoutAllTypes.vue";
 export default {
     name: "",
     props: {},
-    components: {},
+    components: {
+        allTypes
+    },
     data(){
         return{
 
         }
     },
-    computed: {},
+    computed: {
+        ...mapGetters({
+      allNyheds: "a/allNyhedsAttributes"
+    }),
+    },
     methods: {},
     created () {},
     mounted () {
