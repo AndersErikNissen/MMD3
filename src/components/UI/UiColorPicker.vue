@@ -44,5 +44,9 @@ export default {
   padding: 2px;
   text-align: center;
   border-radius: var(--edge);
+  margin-right: 1rem;
+  &:last-child {
+    margin: 0;
+  }
 }
 </style>

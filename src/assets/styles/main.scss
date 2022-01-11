@@ -563,21 +563,18 @@ a {
     }
   }
 
-  &--square1lx2s {
+  &--footer {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    & .grid-area-large {
-      grid-area: 1 / 1 / 3 / 2;
+    grid-template-columns: repeat(4, 1fr);
+    
+    & > * {
+      // align-self: center;
+      justify-self: center;
     }
-    & .grid-area-smallOne {
-      grid-area: 1 / 2 / 2 / 3;
+    @media screen and (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
     }
-    & .grid-area-smallTwo {
-      grid-area: 2 / 2 / 3 / 3;
-    }
-  }
-  @media screen and (max-width: 1024px) {
-    &--2x2 {
+    @media screen and (max-width: 648px) {
       grid-template-columns: 1fr;
     }
   }

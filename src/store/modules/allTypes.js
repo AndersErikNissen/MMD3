@@ -45,6 +45,13 @@ const strapi_allTypes = {
             });
             return newArray;
         },
+        allEventsAttributes: (state) => {
+            let newArray = [];
+            state.data.events.forEach(event => {
+                newArray.push(event.attributes)
+            });
+            return newArray;
+        },
     },
     mutations: {
         ADD_ALL: (state, {key, value}) => {

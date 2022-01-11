@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <main>
     <header>
       <ul class="clean flex row">
         <li>
@@ -38,7 +38,7 @@
         :dataObj="traening"
       ></nyhed-card>
     </all-types>
-  </section>
+  </main>
 </template>
 
 <script>

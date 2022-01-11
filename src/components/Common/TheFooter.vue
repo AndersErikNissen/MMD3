@@ -1,6 +1,6 @@
 <template>
     <footer class="flex center">
-        <div v-if="getData" class="footer__blocks flex row--se">
+        <div v-if="getData" class="footer__blocks grid--footer">
             <footer-block :title="headers[0]" :arr="useAtt.tider"></footer-block>
             <footer-block :title="headers[1]" :arrLink="useAtt.ama"></footer-block>
             <footer-block :title="headers[2]" :kontakt="useAtt.kontakt"></footer-block>
