@@ -26,7 +26,7 @@
             <label for="adgangskode">Adgangskode</label>
             <input
               v-model="inputAdgangskode"
-              type="text"
+              type="password"
               name="adgangskode"
               id="adgangskode"
               placeholder="Adgangskode"
@@ -40,9 +40,9 @@
           >
             Login
           </normal-btn>
-          <p>Har du ikke allerede en bruger? Opret en bruger 
+          <p>Har du ikke allerede en bruger? Login
             <router-link to="/login/normal" class="normal--link--white">
-              her
+              HER
             </router-link> !
           </p>
         </div>

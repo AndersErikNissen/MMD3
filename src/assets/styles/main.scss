@@ -129,7 +129,8 @@ label {
   margin: .2rem 0;
   display: block;
 }
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   display: inline-block;
   background-color: transparent;
   border: 2.5px solid var(--neutral-100);

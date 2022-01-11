@@ -48,7 +48,7 @@
             <label for="adgangskode">Adgangskode</label>
             <input
               v-model="inputAdgangskode"
-              type="text"
+              type="password"
               name="adgangskode"
               id="adgangskode"
               placeholder="Adgangskode"
@@ -66,12 +66,12 @@
         <div>
           <p>Har du  allerede en bruger? Login 
             <router-link to="/login" class="normal--link--white">
-              her
+              HER
             </router-link> !
           </p>
           <p class="quest__message" v-if="create == 'normal'">Eller prøv 14 dages gratis træning med et gæstelogin? Opret en gæstebruger  
             <router-link to="/login/guest" class="normal--link--white">
-              her
+              HER
             </router-link> !
           </p>
         </div>
