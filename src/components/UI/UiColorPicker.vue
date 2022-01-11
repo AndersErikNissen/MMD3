@@ -41,7 +41,7 @@ export default {
   display: inline-block;
   min-width: 10ch;
   color: var(--neutral-100);
-  padding: 2px;
+  padding: 3px 10px;
   text-align: center;
   border-radius: var(--edge);
   margin-right: 1rem;

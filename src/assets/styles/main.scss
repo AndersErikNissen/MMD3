@@ -542,6 +542,10 @@ a {
   &--2x2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    & > * {
+      justify-self: center;
+    }
   }
   &--template {
     display: grid;
