@@ -1,22 +1,26 @@
 {
     "forside": {
         "title": "Forside",
-        "beskrivelse": "Desc"
+        "beskrivelse": "Mangler du en kampsportklub? Aalborg Martial Arts: en klub hvor fællesskab er i fokus. AMA har træningshold til alle, både nybegynderen og den erfarende."
     },
     "holdplan": {
         "title": "Holdplan",
-        "beskrivelse": "Desc"
+        "beskrivelse": "Tilmeld dig til Aalborg Martial Arts holdtræninger og hold dig opdateret angående trænings tidspunkter samt eventuelle aflysninger."
     },
     "login": {
         "title": "Login",
-        "beskrivelse": "Desc"
+        "beskrivelse": "Vil du enten blive et af vores nye medlemmer, måske prøve et gratis 14 dages medlemskab, eller bare logge ind som eksiterende medlem? Så er du kommet det rette sted."
     },
     "nyheder": {
         "title": "Nyheder og Events",
-        "beskrivelse": "Desc"
+        "beskrivelse": "Læs nyheder og hold dig opdateret vedrørende holdtrænings ændringer, COVID-19 restriktioner, åbent hus samt generelle nyheder om Aalborg Martial Arts."
     },
     "discipliner": {
         "title": "Discipliner",
-        "beskrivelse": "Desc"
+        "beskrivelse": "Står du også og er i tvivl om hvilken kampsports diciplin der passer bedst til dig? Læs om alle dicipliner som Aalborg Martial Arts tilbyder."
+    },
+    "events": {
+        "title": "Events",
+        "beskrivelse": "Hold dig opdateret på kommende events vedrørende sporten og Aalborg Martial Arts. Find information omkring event beskrivelsen, tidspunkt og lokation."
     }
 }

@@ -8,6 +8,10 @@
         "path": "/nyheder"
     },
     {
+        "title": "Events",
+        "path": "/events"
+    },
+    {
         "title": "Holdplan",
         "path": "/holdplan"
     },
@@ -41,9 +45,5 @@
                 "path": "junior"
             }
         ]
-    },
-    {
-        "title": "Events",
-        "path": "/events"
     }
 ]

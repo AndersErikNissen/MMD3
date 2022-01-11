@@ -49,14 +49,12 @@ const routes = [
     }
   },
   {
-    path: '/nyheder/:nyhed',
-    name: 'NyhedTemplate',
-    component: () => import('../views/ViewNyhedTemplate.vue'),
-    props: true,
+    path: '/events',
+    name: 'Events',
+    component: () => import('../views/ViewEvents.vue'),
     meta: {
-      title: dataMeta.nyheder.title,
-      description: dataMeta.nyheder.beskrivelse,
-      // addOnTitle: null
+      title: dataMeta.events.title,
+      description: dataMeta.events.beskrivelse,
     }
   },
   {
@@ -91,7 +89,11 @@ const routes = [
   {
     path: '/error',
     name: 'NotFound',
-    component: () => import('../views/ViewError.vue')
+    component: () => import('../views/ViewError.vue'),
+    meta: {
+      title: "Error!",
+      description: "Something went wrong..."
+    }
   },
   {
     // It seems that is just the way to type the last path that picks up everything that comes this far.

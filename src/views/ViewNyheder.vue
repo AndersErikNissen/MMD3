@@ -3,10 +3,14 @@
     <header>
       <ul class="clean flex row">
         <li>
-          <h2>Nyheder</h2>
+          <button @click="nyheder = true">
+            <h2>Nyheder</h2>
+          </button>
         </li>
         <li>
-          <h2>Dagens Træninger</h2>
+          <button @click="nyheder = false">
+            <h2>Dagens Træninger</h2>
+          </button>
         </li>
       </ul>
       <select name="emme" id="selectEmne" v-model="emneSelected">
@@ -18,11 +22,20 @@
       </select>
     </header>
 
-    <all-types path="nyheds">
-      <nyhed-card
+    <all-types path="nyheds" v-if="nyheder">
+      <nyhed-card 
         v-for="nyhed in showNyheds"
         :key="nyhed.title"
         :dataObj="nyhed"
+        :showNyhed="true"
+      ></nyhed-card>
+    </all-types>
+
+    <all-types path="dagenstraenings" v-if="!nyheder">
+      <nyhed-card
+        v-for="traening in showDagens"
+        :key="traening.title"
+        :dataObj="traening"
       ></nyhed-card>
     </all-types>
   </section>
@@ -46,17 +59,27 @@ export default {
     return {
       emneArray,
       emneSelected: "all",
+      nyheder: true,
     };
   },
   computed: {
     ...mapGetters({
       allNyheds: "a/allNyhedsAttributes",
+      allDagenstraenings: "a/allDagensAttributes",
     }),
     showNyheds() {
       let returnArray = this.allNyheds.filter(
         (obj) => obj.emne == this.emneSelected
       );
-      if(this.emneSelected == "all") returnArray = this.allNyheds;
+      if (this.emneSelected == "all") returnArray = this.allNyheds;
+
+      return returnArray;
+    },
+    showDagens() {
+      let returnArray = this.allDagenstraenings.filter(
+        (obj) => obj.emne == this.emneSelected
+      );
+      if (this.emneSelected == "all") returnArray = this.allDagenstraenings;
 
       return returnArray;
     },

@@ -38,6 +38,13 @@ const strapi_allTypes = {
             });
             return newArray;
         },
+        allDagensAttributes: (state) => {
+            let newArray = [];
+            state.data.dagenstraenings.forEach(traening => {
+                newArray.push(traening.attributes)
+            });
+            return newArray;
+        },
     },
     mutations: {
         ADD_ALL: (state, {key, value}) => {

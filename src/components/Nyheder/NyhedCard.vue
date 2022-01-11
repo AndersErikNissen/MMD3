@@ -1,7 +1,19 @@
 <template>
   <article>
     <div>
-      <img :src="require('@/assets/images/nyheds/' + dataObj.billede)" :alt="'Billede til nyheden ' + dataObj.title" />
+      <img
+        v-if="showNyhed"
+        :src="require('@/assets/images/nyheds/' + dataObj.billede)"
+        :alt="'Billede til nyheden ' + dataObj.title"
+      />
+      <div v-else>
+        <img
+          v-for="billede in dataObj.billeder"
+          :key="billede.id"
+          :src="require('@/assets/images/dagens/' + billede.billede)"
+          :alt="'Billeder til Dagens Træning: ' + dataObj.title"
+        />
+      </div>
     </div>
     <section class="nyhed__card--textContainer">
       <div class="flex row nyhed__card--info">
@@ -44,6 +56,9 @@ export default {
       type: Object,
       required: true,
     },
+    showNyhed: {
+      type: Boolean,
+    },
   },
   components: {
     colorPicker,
@@ -72,9 +87,9 @@ export default {
 
 <style lang="scss" scoped>
 img {
-    max-width: 500px;
+  max-width: 500px;
 }
 .nyhed__card--info {
-    padding: 1rem 0;
+  padding: 1rem 0;
 }
 </style>
