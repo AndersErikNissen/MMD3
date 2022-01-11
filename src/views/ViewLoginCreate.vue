@@ -1,7 +1,9 @@
 <template>
-  <main class="sideBySide">
-    <div class="sbs--item">
-      <img :src="heroImg" alt="" />
+  <main class="sideBySide min--height--100">
+    <div class="sbs--item login__bg flex center">
+      <h2 class="clamp">
+        Dit trænings eventyr starter her!
+      </h2>
     </div>
     <section class="sbs--item flex center">
       <section class="login__textContent--container">
@@ -95,7 +97,6 @@
 </template>
 
 <script>
-import heroImg from "@/assets/images/test.jpg";
 import normalBtn from "../components/UI/UiButton.vue";
 export default {
   name: "ViewLoginCreate",
@@ -109,7 +110,6 @@ export default {
   },
   data() {
     return {
-      heroImg,
       inputEmail: undefined,
       inputFornavn: undefined,
       inputEfternavn: undefined,

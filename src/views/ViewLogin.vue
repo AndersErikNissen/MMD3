@@ -1,7 +1,9 @@
 <template>
-  <section class="sideBySide">
-    <div class="sbs--item">
-      <img :src="heroImg" alt="Hero Billede" />
+  <section class="sideBySide min--height--100">
+    <div class="sbs--item login__bg flex center">
+      <h2 class="clamp">
+        Dit trænings eventyr starter her!
+      </h2>
     </div>
     <section class="flex center sbs--item">
       <section class="login__textContent">
@@ -52,7 +54,6 @@
 </template>
 
 <script>
-import heroImg from "@/assets/images/test.jpg";
 import normalBtn from "../components/UI/UiButton.vue";
 export default {
   name: "ViewLogin",
@@ -68,7 +69,6 @@ export default {
     return {
       submitted: false,
       error: false,
-      heroImg,
       textDesc: "Login her og få adgang til holdtræningerne!",
     };
   },

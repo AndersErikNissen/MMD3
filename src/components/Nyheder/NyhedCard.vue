@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 
 import colorPicker from "../UI/UiColorPicker.vue"
 export default {
@@ -44,7 +43,7 @@ export default {
     return {}
   },
   computed: {
-    ...mapGetters({}),
+
   },
   methods: {},
   created() {},

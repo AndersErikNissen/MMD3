@@ -607,3 +607,14 @@ a {
 }
 
 
+.min--height--100 {
+  min-height: 100vh;
+}
+.login__bg {
+  background-image: url('../../assets/images/test.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  padding: 5%;
+}

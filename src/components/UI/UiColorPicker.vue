@@ -1,11 +1,11 @@
 <template>
-  <div :style="styleObject">
+  <div class="emneColorBox" :style="'background-color:' + pickColor +';'">
     {{emne}}
   </div>
 </template>
 
 <script>
-import allColors from "@/assets/data/data_colorpicker.vue"
+import allColors from "@/assets/data/data_colorpicker.json"
 
 
 export default {
@@ -20,17 +20,13 @@ export default {
   data() {
     return {
       allColors,
-      styleObject: {
-        "backgroundColor": this.pickColor,
-      }
     }
   },
   computed: {
     pickColor() {
-      let color = "#fff";
-      switch(this.emne) {
-        case 
-      }
+      let findMatch = allColors.find(obj => this.emne == obj.emne);
+      if(!findMatch) findMatch = "#000";
+      return findMatch.color;
     }
   },
   methods: {},
@@ -41,4 +37,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.emneColorBox {
+  display: inline-block;
+  min-width: 10ch;
+  color: var(--neutral-100);
+  padding: 2px;
+  text-align: center;
+  border-radius: var(--edge);
+}
 </style>

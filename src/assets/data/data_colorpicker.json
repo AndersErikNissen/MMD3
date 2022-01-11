@@ -1,9 +1,32 @@
-{
-    "KickNBurn": "#207BC3",
-    "MuayThai": "#003158",
-    "Boksning": "164306",
-    "MMA": "#782525",
-    "Generel": "#A5124C",
-    "Kickboxning": "#E7745C",
-    "Junior": "#F39C12"
-}
+
+[
+    {
+        "emne": "KickNBurn",
+        "color": "#207BC3"
+    },
+    {
+        "emne": "MuayThai",
+        "color": "#003158"
+    },
+    {
+        "emne":  "Boksning",
+        "color":"#164306"
+    },
+    {
+        "emne":"MMA",
+        "color": "#782525"
+    },
+    {
+        "emne": "Generel",
+        "color": "#A5124C"
+    },
+    {
+        "emne": "Kickboxning",
+        "color": "#E7745C"
+    },
+    {
+        "emne": "Junior",
+        "color": "#F39C12"
+    }
+    
+]

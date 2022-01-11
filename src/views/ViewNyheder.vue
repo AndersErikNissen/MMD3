@@ -5,18 +5,22 @@
         <!-- Color Picker for component for each Nyhed -->
         <all-types path="nyheds">
             {{allNyheds}}
+            <nyhed-card v-for="nyhed in allNyheds" :key="nyhed.title" :dataObj="nyhed"></nyhed-card>
         </all-types>
     </section>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+
 import allTypes from "../components/Layout/LayoutAllTypes.vue";
+import nyhedCard from "../components/Nyheder/NyhedCard.vue"
 export default {
     name: "",
     props: {},
     components: {
-        allTypes
+        allTypes,
+        nyhedCard,
     },
     data(){
         return{
