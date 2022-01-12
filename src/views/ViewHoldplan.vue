@@ -13,7 +13,12 @@
         >
           {{ header.day }}
         </h6>
-        <hold-card v-for="hold in getThisWeek" :key="hold" :class="hold.class" :dataObj="hold.data"></hold-card>
+        <hold-card
+          v-for="hold in getThisWeek"
+          :key="hold"
+          :class="hold.class"
+          :dataObj="hold.data"
+        ></hold-card>
       </section>
     </all-types>
 
@@ -42,7 +47,7 @@ export default {
     return {
       currentWeek: [],
       dateMod: 0,
-       nameWeekdays: [
+      nameWeekdays: [
         {
           day: "Mandag",
           class: "monday",
@@ -101,6 +106,14 @@ export default {
           }
         });
       }
+      returnArray.sort(function (x, y) {
+        // Not the cleanst code, but it should work to sort by the smallest timestamp.
+        let newX = x.data.starttid.split(".")[0].split(":"),
+          checkX = newX[0] + newX[1] + newX[2];
+        let newY = y.data.starttid.split(".")[0].split(":"),
+          checkY = newY[0] + newY[1] + newY[2];
+        return checkX - checkY;
+      });
       return returnArray;
     },
   },
@@ -151,7 +164,7 @@ export default {
         if (newYear.length == 1) newYear = "0" + newYear;
 
         let newestDay = newYear + "-" + newMonth + "-" + newDay;
-        console.log(newestDay)
+        console.log(newestDay);
         this.currentWeek.push(newestDay);
       }
     },
