@@ -122,6 +122,9 @@ h6 {
   &.clamp {
     font-size: clamp(.9rem, 5vw, 1.5rem);
   }
+  &.small {
+    font-size: 1.1rem;
+  }
 }
 
 label {
@@ -497,7 +500,12 @@ a {
   &.noedge {
     border-radius: 0;
   }
-
+  &.blue {
+    background-color: var(--info-400);
+  }
+  &.small {
+    min-width: 5ch;
+  }
   // Special Hover Effect
   //#1 Edge Arrow
   // - Will cover the whole button, and the text if a span is not used.
@@ -519,12 +527,15 @@ a {
     width: 120%;
     height: 110%;
     background: var(--primary-600);
-   
+    
     background-repeat: no-repeat;
     background-size: 100%;
     top: -5%;
     left: 0;
-
+    
+  }
+  &.blue::before{
+    background: var(--info-600);
   }
   &:hover::before,
   &:focus::before {

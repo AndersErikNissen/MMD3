@@ -5,32 +5,25 @@
     </section>
     <all-types path="holdplans">
       <!-- {{ allHolds }} -->
-
+      {{ getThisWeek }}
       <section class="grid--week">
-        <hold-card
-          v-for="hold in getFriday"
-          :key="hold.title"
-          :dataObj="hold"
-          class="grid--friday"
-        ></hold-card>
-      </section>
-      {{ currentWeek }}
-      {{ getMonday }}
-      {{ getTuesday }}
-      {{ getWednesday }}
-      {{ getThursday }}
-      {{ getFriday }}
-      {{ getSaturday }}
-      {{ getSunday }}
-    </all-types>
-    <ul class="grid--week">
-      <li v-for="day in currentWeek" :key="day">
-        {{ day }}
-      </li>
-    </ul>
+        <h6
+          v-for="header in nameWeekdays"
+          :key="header"
+          :class="'grid--' + header.class"
+        >
+          {{ header.day }}
+        </h6>
 
+        <hold-card v-for="hold in getThisWeek[0].data"></hold-card>
+      </section>
+    </all-types>
+
+    <button @click="prevWeek()" class="btn">
+      <span> prev </span>
+    </button>
     <button @click="nextWeek()" class="btn">
-      <span> BUTTON </span>
+      <span> next </span>
     </button>
   </main>
 </template>
@@ -50,19 +43,68 @@ export default {
   data() {
     return {
       currentWeek: [],
-      mandag: [],
-      tirsdag: [],
-      onsdag: [],
-      torsdag: [],
-      fredag: [],
-      loerdag: [],
-      soendag: [],
+      nextAmount: 0,
+      prevAmount: 0,
+      nameWeekdays: [
+        {
+          day: "Mandag",
+          class: "monday",
+        },
+        {
+          day: "Tirsdag",
+          class: "tuesday",
+        },
+        {
+          day: "Onsdag",
+          class: "wednesday",
+        },
+        {
+          day: "Torsdag",
+          class: "thursdag",
+        },
+        {
+          day: "Fredag",
+          class: "friday",
+          data: [],
+        },
+        {
+          day: "Lørdag",
+          class: "saturday",
+        },
+        {
+          day: "Søndag",
+          class: "sunday",
+        },
+      ],
     };
   },
   computed: {
     ...mapGetters({
       allHolds: "a/allHoldplansAttributes",
     }),
+    getThisWeek() {
+      let returnArray = [],
+    classArray = [
+         "grid--monday",
+         "grid--tuesday",
+         "grid--wednesday",
+         "grid--thursday",
+         "grid--friday",
+         "grid--saturday",
+         "grid--sunday"
+    ];
+      for (let i = 0; i < this.currentWeek.length; i++) {
+        this.allHolds.forEach((day) => {
+
+          if (day.dato == this.currentWeek[i]) {
+              let classObj = "";
+              
+              returnArray[i].data.push();
+          }
+        });
+      }
+      return returnArray;
+    },
     getMonday() {
       let array = [];
       this.allHolds.forEach((day) => {
@@ -74,10 +116,10 @@ export default {
         return x.starttid - y.starttid;
       });
       array.sort(function (x, y) {
-          // Not the cleanst code, but it should work to sort by the smallest timestamp.
-          let newX = x.starttid.split(".")[0].split(":"),
+        // Not the cleanst code, but it should work to sort by the smallest timestamp.
+        let newX = x.starttid.split(".")[0].split(":"),
           checkX = newX[0] + newX[1] + newX[2];
-          let newY = y.starttid.split(".")[0].split(":"),
+        let newY = y.starttid.split(".")[0].split(":"),
           checkY = newY[0] + newY[1] + newY[2];
         return checkX - checkY;
       });
@@ -91,10 +133,10 @@ export default {
         }
       });
       array.sort(function (x, y) {
-          // Not the cleanst code, but it should work to sort by the smallest timestamp.
-          let newX = x.starttid.split(".")[0].split(":"),
+        // Not the cleanst code, but it should work to sort by the smallest timestamp.
+        let newX = x.starttid.split(".")[0].split(":"),
           checkX = newX[0] + newX[1] + newX[2];
-          let newY = y.starttid.split(".")[0].split(":"),
+        let newY = y.starttid.split(".")[0].split(":"),
           checkY = newY[0] + newY[1] + newY[2];
         return checkX - checkY;
       });
@@ -108,10 +150,10 @@ export default {
         }
       });
       array.sort(function (x, y) {
-          // Not the cleanst code, but it should work to sort by the smallest timestamp.
-          let newX = x.starttid.split(".")[0].split(":"),
+        // Not the cleanst code, but it should work to sort by the smallest timestamp.
+        let newX = x.starttid.split(".")[0].split(":"),
           checkX = newX[0] + newX[1] + newX[2];
-          let newY = y.starttid.split(".")[0].split(":"),
+        let newY = y.starttid.split(".")[0].split(":"),
           checkY = newY[0] + newY[1] + newY[2];
         return checkX - checkY;
       });
@@ -125,10 +167,10 @@ export default {
         }
       });
       array.sort(function (x, y) {
-          // Not the cleanst code, but it should work to sort by the smallest timestamp.
-          let newX = x.starttid.split(".")[0].split(":"),
+        // Not the cleanst code, but it should work to sort by the smallest timestamp.
+        let newX = x.starttid.split(".")[0].split(":"),
           checkX = newX[0] + newX[1] + newX[2];
-          let newY = y.starttid.split(".")[0].split(":"),
+        let newY = y.starttid.split(".")[0].split(":"),
           checkY = newY[0] + newY[1] + newY[2];
         return checkX - checkY;
       });
@@ -143,10 +185,10 @@ export default {
       });
       // Used .sort to measue the array object, and arrange them with object with the smallest timestamp first.
       array.sort(function (x, y) {
-          // Not the cleanst code, but it should work to sort by the smallest timestamp.
-          let newX = x.starttid.split(".")[0].split(":"),
+        // Not the cleanst code, but it should work to sort by the smallest timestamp.
+        let newX = x.starttid.split(".")[0].split(":"),
           checkX = newX[0] + newX[1] + newX[2];
-          let newY = y.starttid.split(".")[0].split(":"),
+        let newY = y.starttid.split(".")[0].split(":"),
           checkY = newY[0] + newY[1] + newY[2];
         return checkX - checkY;
       });
@@ -160,10 +202,10 @@ export default {
         }
       });
       array.sort(function (x, y) {
-          // Not the cleanst code, but it should work to sort by the smallest timestamp.
-          let newX = x.starttid.split(".")[0].split(":"),
+        // Not the cleanst code, but it should work to sort by the smallest timestamp.
+        let newX = x.starttid.split(".")[0].split(":"),
           checkX = newX[0] + newX[1] + newX[2];
-          let newY = y.starttid.split(".")[0].split(":"),
+        let newY = y.starttid.split(".")[0].split(":"),
           checkY = newY[0] + newY[1] + newY[2];
         return checkX - checkY;
       });
@@ -177,10 +219,10 @@ export default {
         }
       });
       array.sort(function (x, y) {
-          // Not the cleanst code, but it should work to sort by the smallest timestamp.
-          let newX = x.starttid.split(".")[0].split(":"),
+        // Not the cleanst code, but it should work to sort by the smallest timestamp.
+        let newX = x.starttid.split(".")[0].split(":"),
           checkX = newX[0] + newX[1] + newX[2];
-          let newY = y.starttid.split(".")[0].split(":"),
+        let newY = y.starttid.split(".")[0].split(":"),
           checkY = newY[0] + newY[1] + newY[2];
         return checkX - checkY;
       });
@@ -234,13 +276,23 @@ export default {
         if (newYear.length == 1) newYear = "0" + newYear;
 
         let newestDay = newYear + "-" + newMonth + "-" + newDay;
-
         this.currentWeek.push(newestDay);
       }
     },
     nextWeek() {
+      this.nextAmount += 7;
+      this.currentWeek = [];
       let newDate = new Date(),
-        newDatePlus = newDate.setDate(newDate.getDate() + 7),
+        newDatePlus = newDate.setDate(newDate.getDate() + this.nextAmount),
+        nextWeek = new Date(newDatePlus);
+
+      this.createWeek(nextWeek);
+    },
+    prevWeek() {
+      this.nextAmount -= 7;
+      this.currentWeek = [];
+      let newDate = new Date(),
+        newDatePlus = newDate.setDate(newDate.getDate() - this.prevAmount),
         nextWeek = new Date(newDatePlus);
 
       this.createWeek(nextWeek);
