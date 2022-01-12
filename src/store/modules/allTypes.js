@@ -67,7 +67,7 @@ const strapi_allTypes = {
     },
     actions: {
         async getAll({ commit }, key) {
-            const getRequest = await axios.get(ApiGetTest.allBase(key));
+            const getRequest = await axios.get(ApiGet.allBase(key));
             // If the last .data is not used, we also get the meta-data.
             const all = getRequest.data.data;
             commit("ADD_ALL", {key: key, value: all})

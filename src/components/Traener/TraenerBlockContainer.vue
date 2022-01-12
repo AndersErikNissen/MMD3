@@ -8,13 +8,15 @@
         {{ getInfo.beskrivelse }}
       </p>
     </div>
-    <section class="traener__all--container flex row--se">
-      <traener-block
-        :forside="true"
-        v-for="traener in allAtt"
-        :key="traener.id"
-        :dataObj="traener"
-      ></traener-block>
+    <section class="traener__all--container flex center">
+      <div class="traener__hideContainer flex row--se">
+        <traener-block
+          :forside="true"
+          v-for="traener in allAtt"
+          :key="traener.id"
+          :dataObj="traener"
+        ></traener-block>
+      </div>
     </section>
   </section>
 </template>
@@ -55,5 +57,11 @@ export default {
   & .traener__all--container {
     width: 100%;
   }
+  & .traener__hideContainer {
+    overflow: hidden;
+    width: 100%;
+    animation: slide 10s infinite linear;
+  }
+  
 }
 </style>

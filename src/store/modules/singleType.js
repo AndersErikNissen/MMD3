@@ -21,7 +21,7 @@ const strapi_singleTypes = {
     actions: {
         async getSingle({ commit }, key) {
             // Await for the answer from axios, then use that data in post and commit it if there was no error.
-            const getRequest = await axios.get(ApiGetTest.singleBase(key));
+            const getRequest = await axios.get(ApiGet.singleBase(key));
             const single = getRequest.data;
             commit("ADD_SINGLE", {key: key, value: single})
         },

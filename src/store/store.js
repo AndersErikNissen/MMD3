@@ -3,7 +3,6 @@
 // Github: AndersErikNissen/portfolio-v3
 
 import { createStore } from 'vuex'
-// import axios from 'axios'
 
 import singleType from "./modules/singleType"
 import allTypes from "./modules/allTypes"

@@ -5,18 +5,18 @@
     </transition>
     <single-type :path="path">
       <template #header="{ useAtt }">
-        <hero-header :hero="true" :dataObj="useAtt"></hero-header>
+        <hero-header :hero="true" :dataObj="useAtt" class="forside__bg"></hero-header>
       </template>
 
       <template #default="{ useAtt }">
-        <ui-header :dataObj="useAtt.video"></ui-header>
+        <ui-header :dataObj="useAtt.video" class="min--height--100"></ui-header>
         <all-types path="traeners">
-          <traener-container></traener-container>
+          <traener-container class="min--height--75"></traener-container>
         </all-types>
         <all-types path="medlemskabs">
-          <the-medlemskab></the-medlemskab>
+          <the-medlemskab class="min--height--100"></the-medlemskab>
         </all-types>
-        <kontakt-block></kontakt-block>
+        <kontakt-block class="min--height--75"></kontakt-block>
       </template>
     </single-type>
   </main>

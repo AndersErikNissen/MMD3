@@ -1,19 +1,15 @@
 <template>
-  <section>
+  <section class="traener__outside">
     <div>
-      <!-- <img
-        :src="require('@/assets/images/' + imgPath + '/' + dataObj.billede)"
-        :alt="'Billede træneren, ' + dataObj.navn"
-      /> -->
       <img
-        :src="testImg"
+        :src="require('@/assets/images/' + imgPath + '/' + dataObj.billede)"
         :alt="'Billede træneren, ' + dataObj.navn"
       />
     </div>
     <div class="flex center column">
-      <h4>
+      <p>
         {{ dataObj.navn }}
-      </h4>
+      </p>
       <ul v-if="forside" class="clean">
         <li v-for="disciplin in dataObj.disciplin_kategorises.data" :key="disciplin">
           {{ disciplin.attributes.kategori }}
@@ -24,7 +20,6 @@
 </template>
 
 <script>
-import testImg from "@/assets/images/traeners/test.jpg"
 export default {
   name: "TraenerBlock",
   props: {
@@ -40,7 +35,6 @@ export default {
   data() {
     return {
       imgPath: "traeners",
-      testImg
     };
   }
 };
@@ -49,5 +43,9 @@ export default {
 <style lang="scss" scoped>
 img {
   width: 200px;
+  border-radius: 50%;
+}
+.traener__outside {
+  margin: 2%;
 }
 </style>

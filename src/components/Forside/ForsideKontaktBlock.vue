@@ -2,7 +2,7 @@
   <section class="flex">
       <ui-header :dataObj="forside.spoergsmaal"></ui-header>
       <div class="kontakt__img--container">
-        <img :src="testImg" alt="Billede til kontaktsektion">
+        <img :src="imgKontakt" alt="Billede til kontaktsektion">
       </div>
       <ui-header :dataObj="forside.bestyrelsen"></ui-header>
   </section>
@@ -10,7 +10,7 @@
 
 <script>
 import uiHeader from "../UI/UiHeader.vue"
-import testImg from "@/assets/images/traeners/test.jpg"
+import imgKontakt from "@/assets/images/homepagefooter.png"
 import { mapGetters } from "vuex";
 export default {
   name: "",
@@ -20,7 +20,7 @@ export default {
   },
   data() {
       return {
-        testImg
+        imgKontakt
     };
   },
   computed: {
