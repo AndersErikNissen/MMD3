@@ -1,6 +1,6 @@
 <template>
   <section class="sideBySide">
-    <div class="sbs--item">
+    <div :class="!hero && template ? 'sbs--item' : ''">
       <h1>
         {{ dataObj.hero.title }}
       </h1>
@@ -11,14 +11,16 @@
         <span> Gratis Prøvetræning </span>
       </router-link>
     </div>
-    <div class="sbs--item" v-if="!hero && !template">
+    <!-- <div class="sbs--item" v-if="!hero && !template">
       <img
+      v-if="dataObj.hero"
         :src="require('@/assets/images/' + linkPath + '/' + dataObj.hero.link)"
         alt=""
       />
-    </div>
+    </div> -->
     <div class="sbs--item" v-if="!hero && template">
       <img
+      v-if="dataObj.linkarea"
         :src="
           require('@/assets/images/' + linkPath + '/' + dataObj.linkarea.header)
         "

@@ -96,9 +96,10 @@ export default {
   width: 100%;
 }
 #nav--bar {
-  padding: calc(var(--padding) * 0.5);
+  padding: calc(var(--padding) * 0.5) 10%;
+  background-color: var(--neutral-500);
 }
 #nav--logo {
-  max-width: 100px;
+  max-width: 120px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <section class="forside__traener--info flex center column">
-    <div v-if="forside">
+    <div v-if="forside" class="traener__forside--textArea makeSpace">
       <h2>
         {{ getInfo.title }}
       </h2>
@@ -9,11 +9,11 @@
       </p>
     </div>
     <section class="traener__all--container flex center">
-      <div class="traener__hideContainer flex row--se">
+      <div class="traener__hideContainer flex">
         <traener-block
           :forside="true"
           v-for="traener in allAtt"
-          :key="traener.id"
+          :key="traener"
           :dataObj="traener"
         ></traener-block>
       </div>
@@ -52,6 +52,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/styles/_mixins.scss";
 .forside__traener--info {
   width: 100%;
   & .traener__all--container {
@@ -59,9 +60,19 @@ export default {
   }
   & .traener__hideContainer {
     overflow: hidden;
+    justify-content: center;
     width: 100%;
-    animation: slide 10s infinite linear;
+    & > * {
+      @include keyframes(slide) {
+        33% {
+          transform: translateX(120%);
+        }
+        66% {
+          transform: translateX(-120%);
+        }
+      }
+      @include animate(slide, 20s, ease-in-out, infinite);
+    }
   }
-  
 }
 </style>

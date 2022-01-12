@@ -5,16 +5,16 @@
     </transition>
     <single-type :path="path">
       <template #header="{ useAtt }">
-        <hero-header :hero="true" :dataObj="useAtt" class="forside__bg"></hero-header>
+        <hero-header :hero="true" :dataObj="useAtt" class="hero__bg--forside forside__hero--text"></hero-header>
       </template>
 
       <template #default="{ useAtt }">
-        <ui-header :dataObj="useAtt.video" class="min--height--100"></ui-header>
+        <ui-header :dataObj="useAtt.video" class="min--height--50"></ui-header>
         <all-types path="traeners">
-          <traener-container class="min--height--75"></traener-container>
+          <traener-container class="min--height--75 forside__traener__bg"></traener-container>
         </all-types>
         <all-types path="medlemskabs">
-          <the-medlemskab class="min--height--100"></the-medlemskab>
+          <the-medlemskab class="min--height--50 forside__medlem__bg"></the-medlemskab>
         </all-types>
         <kontakt-block class="min--height--75"></kontakt-block>
       </template>
@@ -67,4 +67,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.forside__hero--text {
+ padding-left: 5vw;
+}
 </style>

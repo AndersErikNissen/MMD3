@@ -2,6 +2,7 @@
     <!-- Reused from Github: AndersErikNissen/portfolio-v3 -->
   <div>
     <img
+    v-if="path"
       :src="require('@/assets/svg/' + path)"
       alt="Svg fil"
     />

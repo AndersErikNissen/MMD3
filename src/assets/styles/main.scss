@@ -80,7 +80,7 @@ h6 {
   font-family: 'league_spartanbold', sans-serif;
 }
 h1 {
-  font-size: clamp(3.8rem, 10vw, 6rem);
+  font-size: clamp(3rem, 10vw, 5rem);
   &.clamp--small {
     font-size: clamp(2rem, 10vw, 3.8rem);
   }
@@ -90,7 +90,9 @@ h1 {
   // Diffrent Line-height could be relevant on all headers    .
 }
 h2 {
-  font-size: 3.5rem;
+  font-size: 2.7rem;
+  max-width: 20ch;
+  margin: 1rem 0;
   &.clamp {
     font-size: clamp(2rem, 10vw, 4.5rem);
   }
@@ -103,13 +105,13 @@ h2 {
   }
 }
 h3 {
-  font-size: 3rem;
+  font-size: 2.4rem;
   &.clamp {
     font-size: clamp(2rem, 5vw, 3rem);
   }
 }
 h4 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   &.clamp {
     font-size: clamp(1.9rem, 5vw, 2.5rem);
   }
@@ -353,7 +355,7 @@ li {
 .nav--dropdown--parent {
   cursor: pointer;
   & ul {
-    background-color: var(--neutral-700);
+    background-color: var(--neutral-500);
 
   }
 }
@@ -606,6 +608,11 @@ a {
       grid-area: auto / 7 / auto / 8;
     }
   }
+  &--3x1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 5%;
+  }
 
   &--footer {
     display: grid;
@@ -617,6 +624,10 @@ a {
     }
     @media screen and (max-width: 1024px) {
       grid-template-columns: repeat(2, 1fr);
+      & > * {
+        // align-self: center;
+        justify-self: left;
+      }
     }
     @media screen and (max-width: 648px) {
       grid-template-columns: 1fr;
@@ -648,34 +659,71 @@ a {
 }
 
 
+
+.makeSpace {
+  margin: 3rem 0;
+}
+
 .min--height--100 {
   min-height: 100vh;
+  // padding: 2rem 0;
 }
 
 .min--height--75 {
   min-height: 75vh;
+  // padding: 2rem 0;
 }
 .min--height--50 {
   min-height: 50vh;
+  padding: 2rem 0;
 }
 .login__bg {
-  background-image: url('../../assets/images/loginsplash.jpg');
+  background: 
+  linear-gradient(0deg, rgba(40,40,41,.9) 00%, rgba(40,40,41,.7) 100%),
+  url('../../assets/images/loginsplash.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   min-height: 100vh;
   padding: 5%;
 }
-.forside__bg {
-  background: 
-  linear-gradient(0deg, rgba(40,40,41,1) 10%, rgba(0,0,0,0) 100%),
-  url('../../assets/images/homepagesplash.jpg'),
-  ;
+.hero__bg {
+  &--forside {
+    background: 
+    linear-gradient(0deg, rgba(40,40,41,1) 10%, rgba(0,0,0,0) 100%),
+    linear-gradient(0deg, rgba(40,40,41,.6) 00%, rgba(40,40,41,.6) 100%),
+    url('../../assets/images/homepagesplash.jpg'),
+    ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    min-height: 100vh;
+  }
+  &--discipliner {
+    background: 
+    linear-gradient(0deg, rgba(40,40,41,1) 10%, rgba(0,0,0,0) 100%),
+    linear-gradient(0deg, rgba(40,40,41,.6) 00%, rgba(40,40,41,.6) 100%),
+    url('../../assets/images/Disciplinsider.jpg'),
+    ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    min-height: 100vh;
+  }
+}
+.forside__medlem__bg {
+  background: rgb(40,40,41);
+  background: linear-gradient(0deg, rgba(40,40,41,1) 0%, rgba(18,18,18,1) 100%);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
-  min-height: 100vh;
-
+}
+.forside__traener__bg {
+  background: rgb(40,40,41);
+  background: linear-gradient(0deg, rgba(18,18,18,1) 0%, rgba(40,40,41,1) 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
 }
 .calenderSvg {
   width: 2rem;

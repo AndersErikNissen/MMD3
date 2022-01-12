@@ -2,7 +2,7 @@
   <main>
     <single-type :path="path">
       <template #header="{ useAtt }">
-        <hero-header :linkPath="linkPath" :dataObj="useAtt"></hero-header>
+        <hero-header :linkPath="linkPath" :dataObj="useAtt" class="hero__bg--discipliner"></hero-header>
       </template>
       <template #default>
         <all-types path="disciplins">

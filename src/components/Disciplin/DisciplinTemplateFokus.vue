@@ -11,7 +11,7 @@
       </div>
     </section>
     <div class="sbs--item">
-      <img
+      <img v-if="dataObj"
         :src="require('@/assets/images/disciplins/' + imgPath)"
         :alt="'Billede til disciplinen:' + dataObj.title"
       />
@@ -73,4 +73,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.sideBySide--three {
+  padding: 5%;
+}
 </style>

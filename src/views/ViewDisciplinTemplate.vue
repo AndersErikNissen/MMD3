@@ -5,8 +5,6 @@
       :linkPath="linkPath"
       :dataObj="findData"
     ></hero-header>
-
-    {{ findData }}
     <template-focus
       :dataObj="findData.fokus"
       :imgPath="findData.linkarea.fokus"

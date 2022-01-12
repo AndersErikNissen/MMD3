@@ -1,23 +1,23 @@
 <template>
   <section>
     <div v-if="arr">
-      <h3>
+      <h4>
         {{ title }}
-      </h3>
+      </h4>
       <ul class="clean">
         <li v-for="li in arr" :key="li">
           {{ li.tekst }}
         </li>
       </ul>
     </div>
-    
+
     <div v-if="arrLink">
-      <h3>
+      <h4>
         {{ title }}
-      </h3>
+      </h4>
       <ul class="clean">
         <li v-for="li in arrLink" :key="li">
-          <a :href="li.link">
+          <a :href="li.link" class="normal--link--white">
             {{ li.tekst }}
           </a>
         </li>
@@ -26,9 +26,9 @@
 
     <div v-if="kontakt">
       <!-- Kontakt is made uniqle to have more control since there are things like mailto / tel -->
-      <h3>
+      <h4>
         {{ title }}
-      </h3>
+      </h4>
       <ul class="clean">
         <li>
           {{ kontakt.firma }}
@@ -37,10 +37,12 @@
           {{ kontakt.adresse }}
         </li>
         <li>
-          <a :href="'tel:+45' + kontakt.telefon"> +45 {{ kontakt.telefon }} </a>
+          <a :href="'tel:+45' + kontakt.telefon" class="normal--link--white">
+            +45 {{ kontakt.telefon }}
+          </a>
         </li>
         <li>
-          <a :href="'mailto:' + kontakt.email">
+          <a :href="'mailto:' + kontakt.email" class="normal--link--white">
             {{ kontakt.email }}
           </a>
         </li>
@@ -71,4 +73,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+div {
+  padding: 1rem;
+}
 </style>

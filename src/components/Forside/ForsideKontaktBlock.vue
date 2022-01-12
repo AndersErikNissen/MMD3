@@ -1,7 +1,7 @@
 <template>
-  <section class="flex">
+  <section class="flex grid--3x1">
       <ui-header :dataObj="forside.spoergsmaal"></ui-header>
-      <div class="kontakt__img--container">
+      <div class="kontakt__img--container flex center">
         <img :src="imgKontakt" alt="Billede til kontaktsektion">
       </div>
       <ui-header :dataObj="forside.bestyrelsen"></ui-header>
@@ -37,6 +37,10 @@ export default {
 
 <style lang="scss" scoped>
 .kontakt__img--container {
-    width: 20vw;
+    width: 100%;
+}
+img {
+  height: auto;
+  max-width: 200px;
 }
 </style>

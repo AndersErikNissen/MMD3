@@ -17,7 +17,7 @@
     </div>
     <div class="sbs--item">
       <!-- Not to self: For some reason webpack need some of the path as a string (From this post: https://coderedirect.com/questions/230214/vue-js-dynamic-image-src-with-webpack-require-not-working) -->
-      <img
+      <img v-if="dataObj.linkarea"
         :src="require('@/assets/images/disciplins/' + dataObj.linkarea.header)"
         :alt="'Billede til disciplinen: ' + dataObj.hero.title"
       />

@@ -2,15 +2,16 @@
   <section class="traener__outside">
     <div>
       <img
+      v-if="dataObj.billede"
         :src="require('@/assets/images/' + imgPath + '/' + dataObj.billede)"
         :alt="'Billede træneren, ' + dataObj.navn"
       />
     </div>
     <div class="flex center column">
-      <p>
+      <p class="large">
         {{ dataObj.navn }}
       </p>
-      <ul v-if="forside" class="clean">
+      <ul v-if="forside" class="clean flex center column">
         <li v-for="disciplin in dataObj.disciplin_kategorises.data" :key="disciplin">
           {{ disciplin.attributes.kategori }}
         </li>

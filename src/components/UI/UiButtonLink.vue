@@ -11,7 +11,7 @@ export default {
   name: "UiButtonRouter",
   props: {
     url: {
-      type: Object,
+      type: String,
       // required: true,
     },
   },
