@@ -52,6 +52,13 @@ const strapi_allTypes = {
             });
             return newArray;
         },
+        allHoldplansAttributes: (state) => {
+            let newArray = [];
+            state.data.holdplans.forEach(holdplan => {
+                newArray.push(holdplan.attributes)
+            });
+            return newArray;
+        },
     },
     mutations: {
         ADD_ALL: (state, {key, value}) => {
