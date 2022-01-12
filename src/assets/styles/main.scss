@@ -573,8 +573,26 @@ a {
     & > * {
       justify-self: center;
     }
-    & .grid--itemOne {
+    & .grid--monday {
       grid-area: auto / 1 / auto / 2;
+    }
+    & .grid--tuesday {
+      grid-area: auto / 2 / auto / 3;
+    }
+    & .grid--wednesday {
+      grid-area: auto / 3 / auto / 4;
+    }
+    & .grid--thursday {
+      grid-area: auto / 4 / auto / 5;
+    }
+    & .grid--friday {
+      grid-area: auto / 5 / auto / 6;
+    }
+    & .grid--saturday {
+      grid-area: auto / 6 / auto / 7;
+    }
+    & .grid--sunday {
+      grid-area: auto / 7 / auto / 8;
     }
   }
 
