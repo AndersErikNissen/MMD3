@@ -1,6 +1,6 @@
 <template>
   <section class="sideBySide">
-    <div :class="!hero && template ? 'sbs--item' : ''">
+    <div :class="[!hero && template ? 'sbs--item' : '', 'hero__header']">
       <h1 class="clamp--small pad-ding">
         {{ dataObj.hero.title }}
       </h1>
@@ -63,8 +63,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.hero__header {
+  margin-left: 5%;
+}
 .header__routerLink {
-  @media screen and (max-width: 648px) {
+  @media screen and (max-width: 790px) {
     justify-content: center;
     align-items: center;
   }

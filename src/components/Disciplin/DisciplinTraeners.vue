@@ -1,7 +1,7 @@
 <template>
   <section class="disciplin__traeners flex column center">
-    <div>
-      <h2>Mød vores kampsports trænere</h2>
+    <div class="pad-ding">
+      <h4>Mød vores kampsports trænere</h4>
       <p>
         Med vores dygtige og ambitiøse team af trænere, kan du til enhver tid
         forvente holdtræning i topplan.

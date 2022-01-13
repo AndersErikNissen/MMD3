@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="holdCard">
     <div>
       <p class="small-txt">{{ newStart }} - {{ newSlut }}</p>
     </div>
@@ -7,7 +7,7 @@
       {{ dataObj.title }}
     </h6>
     <p class="small-txt">
-        {{dataObj.niveau.data.attributes.navn}}
+      {{ dataObj.niveau.data.attributes.navn }}
     </p>
     <button
       :class="['btn small flex center', checked ? 'blue' : '']"
@@ -45,16 +45,16 @@ export default {
     };
   },
   computed: {
-      newStart() {
-          let time = this.dataObj.starttid.split(".")[0].split(":"),
-          newTime = time[0] + ":" + time[1];
-          return newTime;
-      },
-      newSlut() {
-          let time = this.dataObj.sluttid.split(".")[0].split(":"),
-          newTime = time[0] + ":" + time[1];
-          return newTime;
-      },
+    newStart() {
+      let time = this.dataObj.starttid.split(".")[0].split(":"),
+        newTime = time[0] + ":" + time[1];
+      return newTime;
+    },
+    newSlut() {
+      let time = this.dataObj.sluttid.split(".")[0].split(":"),
+        newTime = time[0] + ":" + time[1];
+      return newTime;
+    },
   },
   methods: {
     btnClick() {
@@ -62,19 +62,25 @@ export default {
       if (this.checked) {
         this.btnText = "Tilmeldt";
       } else {
-          this.btnText = "Tilmeld";
+        this.btnText = "Tilmeld";
       }
     },
   },
-  created() {
-
-  },
+  created() {},
   mounted() {},
   watch: {},
 };
 </script>
 
 <style lang="scss" scoped>
+.holdCard {
+  background-color: var(--neutral-600);
+  width: 100%;
+}
+.btn {
+  font-size: 12px;
+  padding: 8px;
+}
 button {
   & div {
     align-items: center;
@@ -84,5 +90,10 @@ button {
 img {
   width: 1rem;
   margin-left: 0.5rem;
+}
+h6.small {
+  @media screen and (max-width: 600px) {
+    font-size: 12px;
+  }
 }
 </style>

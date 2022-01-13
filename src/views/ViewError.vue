@@ -1,14 +1,14 @@
 <template>
-  <section id="errorPage" class="flex center column">
+  <section id="errorPage" class="flex center column min--height--100 ama__bg">
     <div>
-      <div class="error__textArea">
-        <h1>404</h1>
-        <h4>Hov, der gik noget galt!</h4>
-        <h4>Vi kan ikke finde den side, du søgte efter.</h4>
+      <div class="error__textArea pad-ding error__divOne">
+        <h1 class="clamp">404</h1>
+        <h4 class="clamp">Hov, der gik noget galt!</h4>
+        <h4 class="clamp">Vi kan ikke finde den side, du søgte efter.</h4>
       </div>
-      <div>
-        <h6>Måske kan disse links hjælpe dig på vej:</h6>
-        <ul>
+      <div class="pad-ding error__divTwo">
+        <h6 class="clamp">Måske kan disse links hjælpe dig på vej:</h6>
+        <ul class="clean">
           <li v-for="item in ulList" :key="item.title">
             <router-link :to="item.path" class="normal--link--red">
               {{ item.title }}
@@ -67,5 +67,9 @@ h1 {
   & .error__textArea {
     margin-bottom: 2rem;
   }
+}
+.error__divTwo,
+.error__divOne {
+  margin: 10% 0;
 }
 </style>

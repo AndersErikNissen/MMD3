@@ -1,26 +1,27 @@
 <template>
-  <section class="sideBySide--three">
+  <section class="sideBySide--three--v2">
     <section class="sbs--item">
-      <div v-for="obj in areaOne" :key="obj.title">
-        <h4>
+      <div v-for="obj in areaOne" :key="obj.title" class="pad-ding">
+        <h6 class="clamp">
           {{ obj.title }}
-        </h4>
+        </h6>
         <p>
           {{ obj.beskrivelse }}
         </p>
       </div>
     </section>
     <div class="sbs--item">
-      <img v-if="dataObj"
+      <img
+        v-if="dataObj"
         :src="require('@/assets/images/disciplins/' + imgPath)"
         :alt="'Billede til disciplinen:' + dataObj.title"
       />
     </div>
     <section class="sbs--item">
-      <div v-for="obj in areaTwo" :key="obj.title">
-        <h3>
+      <div v-for="obj in areaTwo" :key="obj.title" class="pad-ding">
+        <h6>
           {{ obj.title }}
-        </h3>
+        </h6>
         <p>
           {{ obj.beskrivelse }}
         </p>
@@ -73,13 +74,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sideBySide--three {
-  // padding: 5%;
- & .sbs--item {
-  //  padding: 5% 2%;
-  & > * {
-    padding: 1rem;
-  }
-}
-}
 </style>

@@ -44,9 +44,12 @@ export default {
   padding: 3px 10px;
   text-align: center;
   border-radius: var(--edge);
-  margin-right: 1rem;
+  margin: .5rem;
+  &:first-child {
+    margin-left: 0;
+  }
   &:last-child {
-    margin: 0;
+    margin-right: 0;
   }
 }
 </style>

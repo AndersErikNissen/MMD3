@@ -1,26 +1,28 @@
 <template>
-  <main>
-    <header>
-      <h1>Events</h1>
-      <p>
-        Her kan du finde alle kalenderlagte events, deres beskrivelse, tidspunkt
-        samt adresse.
-      </p>
-      <p>
-        Vil du vide mere om et event, eller har du nogle spørgsmål så kan du
-        tage fat i en træner eller et medlem i bestyrelsen.
-      </p>
-      <div class="flex row">
-      <button @click="downMonth()"><img class="eventArrow arrowLeft" :src="dropArrow" alt="Pil" /></button>
-      <h6>
-        {{ monthText }} {{year}}
-      </h6>
-      <button @click="upMonth()"><img class="eventArrow arrowRight" :src="dropArrow" alt="Pil" /></button>
-
+  <main class="max-width flex center column ama__bg">
+    <header class="flex">
+      <div class="pad-ding">
+        <h1 class="clamp red">Events</h1>
+        <p>
+          Her kan du finde alle kalenderlagte events, deres beskrivelse,
+          tidspunkt samt adresse. Vil du vide mere om et event, eller har du
+          nogle spørgsmål så kan du tage fat i en træner eller et medlem i
+          bestyrelsen.
+        </p>
       </div>
+      <section class="event__buttons flex center">
+        <div class="flex row">
+          <button @click="downMonth()">
+            <img class="eventArrow arrowLeft" :src="dropArrow" alt="Pil" />
+          </button>
+          <h6>{{ monthText }} {{ year }}</h6>
+          <button @click="upMonth()">
+            <img class="eventArrow arrowRight" :src="dropArrow" alt="Pil" />
+          </button>
+        </div>
+      </section>
     </header>
-    <all-types path="events">
-      <!-- {{ matchEventWithMonths }} -->
+    <all-types path="events" class="min--height--100">
       <section class="grid--2x2">
         <event-card
           v-for="event in matchEventWithMonths"
@@ -28,6 +30,11 @@
           :dataObj="event"
           :monthText="monthText"
         ></event-card>
+      </section>
+      <section v-if="!matchEventWithMonths" class="flex center min--height--50">
+        <p>
+          <i> Der er desværre ingen events i denne måned, endnu. </i>
+        </p>
       </section>
     </all-types>
   </main>
@@ -147,18 +154,35 @@ export default {
 
 <style lang="scss" scoped>
 h6 {
-    font-family: 'Roboto', sans-serif;
-    min-width: 10ch;
-    text-align: center;
+  font-family: "Roboto", sans-serif;
+  min-width: 10ch;
+  text-align: center;
 }
 .arrowLeft {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 .arrowRight {
-    transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 .eventArrow {
-    width: 1.5rem;
-    margin: 0 1rem;
+  width: 1.5rem;
+  margin: 0 1rem;
+}
+header {
+  width: 100%;
+  align-items: center;
+  & > div {
+    justify-content: space-between;
+  }
+  @media screen and (max-width: 648px) {
+    flex-direction: column;
+  }
+}
+.event__buttons {
+  width: 100%;
+  padding: 1rem 0;
+}
+main {
+  padding-bottom: 2rem;
 }
 </style>

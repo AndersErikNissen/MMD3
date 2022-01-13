@@ -1,10 +1,10 @@
 <template>
   <section class="disciplin__template--intro--container flex center">
-      <section class="flex column center">
+      <section class="flex column center pad-ding">
           <div class="disciplin__template--title--container">
-              <h2>
+              <h4 class="clamp">
                   {{dataObj.title}}
-              </h2>
+              </h4>
           </div>
           <div class="sideBySide">
               <p class="sbs--item">
@@ -14,6 +14,11 @@
                   {{dataObj.beskrivelse2}}
               </p>
           </div>
+          <router-link to="/login/quest" class="btn">
+            <span>
+              Gratis Prøvetræning
+            </span>
+          </router-link>
       </section>
   </section>
 </template>

@@ -1,18 +1,34 @@
 <template>
   <main>
-    <section>
-      <h1>Holdplan</h1>
+    <section class="flex center column ama__bg">
+      <h1 class="clamp--small">Holdplan</h1>
+      <div class="flex row">
+        <button @click="prevWeek()" class="flex center">
+          <img :src="arrowSvg" alt="" class="prev">
+        </button>
+        <p class="bold">
+          Nuværende Uge
+        </p>
+        <button @click="nextWeek()" class="flex center">
+        <img :src="arrowSvg" alt="" class="next">
+        </button>
+      </div>
     </section>
-    <all-types path="holdplans">
+    <all-types path="holdplans" class="min--height--75">
       <!-- {{ allHolds }} -->
       <section class="grid--week">
-        <h6
+        <div
           v-for="header in nameWeekdays"
           :key="header"
-          :class="'grid--' + header.class"
+          :class="[
+            'grid--' + header.class + '-header',
+            'dayHeaders flex center',
+          ]"
         >
-          {{ header.day }}
-        </h6>
+          <h6>
+            {{ header.day }}
+          </h6>
+        </div>
         <hold-card
           v-for="hold in getThisWeek"
           :key="hold"
@@ -21,19 +37,13 @@
         ></hold-card>
       </section>
     </all-types>
-
-    <button @click="prevWeek()" class="btn">
-      <span> prev </span>
-    </button>
-    <button @click="nextWeek()" class="btn">
-      <span> next </span>
-    </button>
   </main>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 
+import arrowSvg from "@/assets/svg/dropdown_arrow.svg"
 import holdCard from "../components/Holdplan/HoldplanCard.vue";
 import allTypes from "../components/Layout/LayoutAllTypes.vue";
 export default {
@@ -45,6 +55,7 @@ export default {
   },
   data() {
     return {
+      arrowSvg,
       currentWeek: [],
       dateMod: 0,
       nameWeekdays: [
@@ -62,7 +73,7 @@ export default {
         },
         {
           day: "Torsdag",
-          class: "thursdag",
+          class: "thursday",
         },
         {
           day: "Fredag",
@@ -186,6 +197,26 @@ export default {
 
       this.createWeek(prevWeek);
     },
+    getMonday() {
+      let array = [];
+      this.allHolds.forEach((day) => {
+        if (day.dato == this.currentWeek[0]) {
+          array.push(day);
+        }
+      });
+      array.sort(function (x, y) {
+        return x.starttid - y.starttid;
+      });
+      array.sort(function (x, y) {
+        // Not the cleanst code, but it should work to sort by the smallest timestamp.
+        let newX = x.starttid.split(".")[0].split(":"),
+          checkX = newX[0] + newX[1] + newX[2];
+        let newY = y.starttid.split(".")[0].split(":"),
+          checkY = newY[0] + newY[1] + newY[2];
+        return checkX - checkY;
+      });
+      return array;
+    },
   },
   created() {
     this.createWeek();
@@ -198,4 +229,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.dayHeaders {
+  background-color: var(--neutral-700);
+  width: 100%;
+  padding: 2px;
+}
+.holdCard {
+  @media screen and (max-width: 600px) {
+    & cardH6 {
+      font-size: 0.5rem;
+    }
+  }
+}
+.prev {
+  transform: rotate(90deg);
+}
+.next {
+  transform: rotate(-90deg);
+}
+.next,
+.prev {
+  width: 30px;
+}
 </style>

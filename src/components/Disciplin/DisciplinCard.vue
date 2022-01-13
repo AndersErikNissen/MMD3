@@ -1,5 +1,5 @@
 <template>
-  <section class="disciplin__card--container sideBySide">
+  <section class="disciplin__card--container sideBySide pad-ding">
     <div class="sbs--item flex column">
       <h2>
         {{ dataObj.hero.title }}
@@ -55,6 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 .disciplin__card--container {
+  margin-bottom: 5vh;
     color: white;
     & .disciplin__router--holdplan {
         color: white;
