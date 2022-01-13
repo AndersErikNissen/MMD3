@@ -6,12 +6,13 @@
         :src="require('@/assets/images/nyheds/' + dataObj.billede)"
         :alt="'Billede til nyheden ' + dataObj.title"
       />
-      <div v-else>
+      <div v-else class="sideBySide">
         <img
           v-for="billede in dataObj.billeder"
           :key="billede.id"
           :src="require('@/assets/images/dagens/' + billede.billede)"
           :alt="'Billeder til Dagens Træning: ' + dataObj.title"
+          class="sbs--item"
         />
       </div>
     </div>

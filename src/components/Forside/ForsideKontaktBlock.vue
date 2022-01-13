@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import imgKontakt from "@/assets/images/homepagefooter.png";
+import imgKontakt from "@/assets/images/forsidebillede.jpg";
 import { mapGetters } from "vuex";
 export default {
   name: "ForsideKontaktBlock",
@@ -53,7 +53,8 @@ export default {
 }
 img {
   height: auto;
-  max-width: 200px;
+  max-width: 300px;
+  border-radius: 50%;
 }
 section {
   align-items: center;
