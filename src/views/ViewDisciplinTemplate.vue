@@ -1,16 +1,18 @@
 <template>
-  <all-types path="disciplins">
+  <all-types path="disciplins" class="ama__bg max-width flex center">
     <hero-header
       :template="true"
       :linkPath="linkPath"
       :dataObj="findData"
+      class="min--height--75"
     ></hero-header>
     <template-focus
+    class="min--height--50"
       :dataObj="findData.fokus"
       :imgPath="findData.linkarea.fokus"
     ></template-focus>
-    <template-traeners :dataObj="findData.traeners.data"></template-traeners>
-    <template-intro :dataObj="findData.intro"></template-intro>
+    <template-traeners :dataObj="findData.traeners.data" class="min--height--50"></template-traeners>
+    <template-intro :dataObj="findData.intro" class="min--height--50"></template-intro>
     <section v-if="!findData">
       Noget gik galt, vi har ikke en Disciplin med det navn? Prøv i stedet:
     </section>
@@ -68,10 +70,15 @@ export default {
   },
   methods: {},
   created() {},
-  mounted() {},
+  mounted() {
+    window.scrollTo(0, 0);
+  },
   watch: {},
 };
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  color: #232324;
+}
 </style>

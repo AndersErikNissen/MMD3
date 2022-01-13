@@ -1,15 +1,17 @@
 <template>
   <section class="sideBySide">
     <div :class="!hero && template ? 'sbs--item' : ''">
-      <h1>
+      <h1 class="clamp--small pad-ding">
         {{ dataObj.hero.title }}
       </h1>
-      <p class="bold">
+      <p class="pad-ding">
         {{ dataObj.hero.beskrivelse }}
       </p>
-      <router-link to="/login/quest" class="btn">
-        <span> Gratis Prøvetræning </span>
-      </router-link>
+      <div class="flex header__routerLink">
+        <router-link to="/login/quest" class="btn">
+          <span> Gratis Prøvetræning </span>
+        </router-link>
+      </div>
     </div>
     <!-- <div class="sbs--item" v-if="!hero && !template">
       <img
@@ -20,7 +22,7 @@
     </div> -->
     <div class="sbs--item" v-if="!hero && template">
       <img
-      v-if="dataObj.linkarea"
+        v-if="dataObj.linkarea"
         :src="
           require('@/assets/images/' + linkPath + '/' + dataObj.linkarea.header)
         "
@@ -61,4 +63,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.header__routerLink {
+  @media screen and (max-width: 648px) {
+    justify-content: center;
+    align-items: center;
+  }
+}
 </style>

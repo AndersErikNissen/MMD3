@@ -1,10 +1,11 @@
 <template>
   <section class="ui__header flex center">
+    <slot></slot>
     <div>
-      <h2>
+      <h2 class="clamp--small pad-ding">
         {{ dataObj.title }}
       </h2>
-      <p class="bold">
+      <p class="bold pad-ding">
         {{ dataObj.beskrivelse }}
       </p>
     </div>

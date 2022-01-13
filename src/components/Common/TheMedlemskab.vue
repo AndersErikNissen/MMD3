@@ -2,15 +2,15 @@
   <section>
     <header class="flex center makeSpace">
       <div class="flex center column">
-        <h2>
+        <h2 class="clamp--small pad-ding">
           {{ getInfo.title }}
         </h2>
-        <p>
+        <p class="pad-ding">
           {{ getInfo.beskrivelse }}
         </p>
       </div>
     </header>
-    <div class="flex row--se">
+    <div class="flex medlem__container">
       <section
         v-for="medlemskab in getSort"
         :key="medlemskab.title"
@@ -20,9 +20,9 @@
         ]"
       >
         <div class="medlemskab__card--header flex center">
-          <h3>
+          <h5 class="clamp pad-ding">
             {{ medlemskab.title }}
-          </h3>
+          </h5>
         </div>
         <div class="medlemskab__card--center">
           <ul class="clean flex center column">
@@ -96,9 +96,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.medlem__container {
+  justify-content: space-evenly;
+  & .medlemskab__card--footer {
+    display: flex;
+    justify-content: center;
+  }
+  @media screen and (max-width: 750px) {
+    flex-direction: column;
+    align-items: center;
+    & .medlemskab__cardShell {
+      margin: 3rem 0;
+      padding: 0 2%;
+    }
+  }
+}
 .medlemskab__cardShell {
   border-radius: var(--edge);
   overflow: hidden;
+  max-width: 300px;
 }
 .medlemskab__card--header,
 .medlemskab__card--footer {
@@ -123,7 +139,9 @@ ul {
   background-color: var(--neutral-600);
 }
 .medlemskab__card--larger {
-  transform: scale(1.15);
+  @media screen and (min-width: 1025px) {
+    transform: scale(1.15);
+  }
   & .medlemskab__card--header,
   & .medlemskab__card--footer {
     background-color: var(--primary-700);

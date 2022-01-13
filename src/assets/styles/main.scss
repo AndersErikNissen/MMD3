@@ -78,6 +78,10 @@ h6 {
   margin: 0;
   font-weight: --font-header-weight;
   font-family: 'league_spartanbold', sans-serif;
+
+  &.red {
+    color: var(--primary-500);
+  }
 }
 h1 {
   font-size: clamp(3rem, 10vw, 5rem);
@@ -90,8 +94,8 @@ h1 {
   // Diffrent Line-height could be relevant on all headers    .
 }
 h2 {
-  font-size: 2.7rem;
-  max-width: 20ch;
+  font-size: 36px;
+  max-width: 25ch;
   margin: 1rem 0;
   &.clamp {
     font-size: clamp(2rem, 10vw, 4.5rem);
@@ -149,6 +153,10 @@ input[type="password"] {
   }
   &.margin--right {
     margin-right: 1rem;
+    @media screen and (max-width: 648px) {
+      margin-right: 0;
+      margin-bottom: .5rem;
+    }
   }
 }
 
@@ -173,6 +181,10 @@ b {
 }
 p {
   max-width: 58ch;
+  padding: 1rem 0;
+  &.space--around {
+    padding: 1rem;
+  }
   &.large {
     font-size: 1.5rem;
   }
@@ -412,7 +424,7 @@ ul {
   & .sbs--item {
     width: 50%; 
   }
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 800px) {
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -496,6 +508,10 @@ a {
   border-radius: var(--edge);
 
   background-color: var(--primary-500);
+
+  @media screen and (max-width: 468px) {
+    min-width: 15ch;
+  }
   &.slim {
     border: 1px solid var(--color-btn-border);
   }
@@ -612,6 +628,10 @@ a {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 0 5%;
+    @media screen and (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      margin: 2rem 0;
+    }
   }
 
   &--footer {
@@ -643,6 +663,9 @@ a {
     max-width: 1200px;
   }
 }
+.max-1200 {
+  max-width: 1200px;
+}
 .split {
   &--40 {
     width: 40%;
@@ -655,6 +678,12 @@ a {
     &--60 {
       width: 100%;
     }
+  }
+}
+
+.pad-ding {
+  @media screen and (max-width: 800px){
+    padding: 1% 5%;
   }
 }
 
@@ -686,6 +715,16 @@ a {
   background-position: center;
   min-height: 100vh;
   padding: 5%;
+  @media screen and (max-width: 800px) {
+    min-height: 40vh;
+  }
+}
+.ama__bg {
+  background-image: linear-gradient(0deg, rgba(0,0,0,0) 10%, #24242b 100%),
+  url('../../assets/svg/ama_bg.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .hero__bg {
   &--forside {

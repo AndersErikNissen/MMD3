@@ -2,10 +2,10 @@
   <main>
     <single-type :path="path">
       <template #header="{ useAtt }">
-        <hero-header :linkPath="linkPath" :dataObj="useAtt" class="hero__bg--discipliner"></hero-header>
+        <hero-header :linkPath="linkPath" :dataObj="useAtt" class="hero__bg--discipliner max-width flex center"></hero-header>
       </template>
       <template #default>
-        <all-types path="disciplins">
+        <all-types path="disciplins" class="max-width flex center">
           <disciplin-card v-for="disc in allDisciplins" :key="disc" :dataObj="disc"></disciplin-card>
         </all-types>
       </template>

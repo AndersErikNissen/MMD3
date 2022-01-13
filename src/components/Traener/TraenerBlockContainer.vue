@@ -1,10 +1,10 @@
 <template>
   <section class="forside__traener--info flex center column">
     <div v-if="forside" class="traener__forside--textArea makeSpace">
-      <h2>
+      <h2 class="clamp--small pad-ding">
         {{ getInfo.title }}
       </h2>
-      <p>
+      <p class="pad-ding">
         {{ getInfo.beskrivelse }}
       </p>
     </div>

@@ -7,9 +7,10 @@
       <template #header="{ useAtt }">
         <hero-header :hero="true" :dataObj="useAtt" class="hero__bg--forside forside__hero--text"></hero-header>
       </template>
-
       <template #default="{ useAtt }">
-        <ui-header :dataObj="useAtt.video" class="min--height--50"></ui-header>
+        <ui-header :dataObj="useAtt.video" class="min--height--50 flex center column">
+          <iframe :width="youtubeWidth" :height="youtubeHeight" src="https://www.youtube.com/embed/kwcP_qSEVeQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </ui-header>
         <all-types path="traeners">
           <traener-container class="min--height--75 forside__traener__bg"></traener-container>
         </all-types>
@@ -23,7 +24,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapState } from "vuex";
 
 import singleType from "../components/Layout/LayoutSingleType.vue";
 import allTypes from "../components/Layout/LayoutAllTypes.vue";
@@ -56,6 +57,17 @@ export default {
     ...mapGetters({
       checkForside: "getCheckForside",
     }),
+    ...mapState({
+      window: state => state.windowWidth,
+    }),
+    youtubeWidth() {
+      let width = this.window * .9;
+      if (width > 1000) width = 1000
+      return width;
+    },
+    youtubeHeight() {
+      return this.youtubeWidth / 1.8;
+    },
   },
   methods: {},
   created() {},

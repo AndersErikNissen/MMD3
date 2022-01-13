@@ -60,5 +60,8 @@ export default {
 }
 .sideBySide {
      align-items: flex-start;
+     & .sbs--item:nth-child(1) {
+       margin-right: 3rem;
+     }
 }
 </style>

@@ -2,9 +2,9 @@
   <section class="sideBySide--three">
     <section class="sbs--item">
       <div v-for="obj in areaOne" :key="obj.title">
-        <h3>
+        <h4>
           {{ obj.title }}
-        </h3>
+        </h4>
         <p>
           {{ obj.beskrivelse }}
         </p>
@@ -74,6 +74,12 @@ export default {
 
 <style lang="scss" scoped>
 .sideBySide--three {
-  padding: 5%;
+  // padding: 5%;
+ & .sbs--item {
+  //  padding: 5% 2%;
+  & > * {
+    padding: 1rem;
+  }
+}
 }
 </style>

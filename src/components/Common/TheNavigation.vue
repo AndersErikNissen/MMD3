@@ -94,10 +94,15 @@ export default {
   left: 0;
   z-index: 2;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--neutral-500);
 }
 #nav--bar {
-  padding: calc(var(--padding) * 0.5) 10%;
-  background-color: var(--neutral-500);
+  padding: calc(var(--padding) * 0.5);
+  width: 100%;
+  max-width: 1200px;
 }
 #nav--logo {
   max-width: 120px;

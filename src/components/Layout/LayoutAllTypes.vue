@@ -1,9 +1,7 @@
 <template>
   <section>
     <transition name="fade_InOut">
-      <section v-if="loading">
-        <h2>Loading...</h2>
-      </section>
+      <ui-loader v-if="loading"></ui-loader>
     </transition>
 
     <section v-if="getAllData && !loading">
@@ -14,12 +12,17 @@
 </template>
 
 <script>
+import uiLoader from "../UI/UiSkeletonLoading.vue"
+
 export default {
   name: "UiHandlerAllTypes",
   props: {
     path: {
       type: String,
     },
+  },
+  components: {
+    uiLoader,
   },
   data() {
     return {

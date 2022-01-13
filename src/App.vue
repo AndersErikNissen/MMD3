@@ -1,6 +1,6 @@
 <template>
   <the-navigation></the-navigation>
-  <router-view />
+  <router-view id="view" />
   <the-footer></the-footer>
 </template>
 

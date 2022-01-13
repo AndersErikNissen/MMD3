@@ -5,7 +5,7 @@
         Dit trænings eventyr starter her!
       </h2>
     </div>
-    <section class="sbs--item flex center">
+    <section class="sbs--item flex center pad-ding">
       <section class="login__textContent--container">
         <div class="login__textArea">
           <h1 class="clamp--small">Hej</h1>
@@ -202,4 +202,5 @@ h6 {
     border-radius: var(--edge);
   }
 }
+
 </style>

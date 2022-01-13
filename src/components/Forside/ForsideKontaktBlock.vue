@@ -1,31 +1,43 @@
 <template>
   <section class="flex grid--3x1">
-      <ui-header :dataObj="forside.spoergsmaal"></ui-header>
-      <div class="kontakt__img--container flex center">
-        <img :src="imgKontakt" alt="Billede til kontaktsektion">
-      </div>
-      <ui-header :dataObj="forside.bestyrelsen"></ui-header>
+    <div>
+      <h2 class="clamp--small pad-ding">
+        {{ forside.spoergsmaal.title }}
+      </h2>
+      <p class="bold pad-ding">
+        {{ forside.spoergsmaal.beskrivelse }}
+      </p>
+    </div>
+    <div class="kontakt__img--container flex center">
+      <img :src="imgKontakt" alt="Billede til kontaktsektion" />
+    </div>
+    <div>
+      <h2 class="clamp--small pad-ding">
+        {{ forside.bestyrelsen.title }}
+      </h2>
+      <p class="bold pad-ding">
+        {{ forside.bestyrelsen.beskrivelse }}
+      </p>
+    </div>
   </section>
 </template>
 
 <script>
-import uiHeader from "../UI/UiHeader.vue"
-import imgKontakt from "@/assets/images/homepagefooter.png"
+import imgKontakt from "@/assets/images/homepagefooter.png";
 import { mapGetters } from "vuex";
 export default {
-  name: "",
+  name: "ForsideKontaktBlock",
   props: {},
   components: {
-      uiHeader,
   },
   data() {
-      return {
-        imgKontakt
+    return {
+      imgKontakt,
     };
   },
   computed: {
     ...mapGetters({
-        forside: "s/getForsideAttributes"
+      forside: "s/getForsideAttributes",
     }),
   },
   methods: {},
@@ -37,10 +49,13 @@ export default {
 
 <style lang="scss" scoped>
 .kontakt__img--container {
-    width: 100%;
+  width: 100%;
 }
 img {
   height: auto;
   max-width: 200px;
+}
+section {
+  align-items: center;
 }
 </style>

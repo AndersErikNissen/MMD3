@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <article class="nyhedCard__shell flex center column">
     <div>
       <img
         v-if="showNyhed"
@@ -35,9 +35,9 @@
         </div>
       </div>
       <section>
-        <h2 class="clamp--small">
+        <h6 class="clamp--small">
           {{ dataObj.title }}
-        </h2>
+        </h6>
         <p>
           {{ dataObj.beskrivelse }}
         </p>
@@ -86,10 +86,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.nyhedCard__shell {
+  background-color: var(--neutral-600);
+  padding: .5rem;
+  max-width: 60ch;
+  margin: 1rem 0;
+  border-radius: var(--edge);
+}
 img {
   max-width: 500px;
-}
-.nyhed__card--info {
-  padding: 1rem 0;
 }
 </style>

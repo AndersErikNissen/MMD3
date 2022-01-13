@@ -2,7 +2,7 @@
   <section class="traener__outside">
     <div>
       <img
-      v-if="dataObj.billede"
+        v-if="dataObj.billede"
         :src="require('@/assets/images/' + imgPath + '/' + dataObj.billede)"
         :alt="'Billede træneren, ' + dataObj.navn"
       />
@@ -12,7 +12,10 @@
         {{ dataObj.navn }}
       </p>
       <ul v-if="forside" class="clean flex center column">
-        <li v-for="disciplin in dataObj.disciplin_kategorises.data" :key="disciplin">
+        <li
+          v-for="disciplin in dataObj.disciplin_kategorises.data"
+          :key="disciplin"
+        >
           {{ disciplin.attributes.kategori }}
         </li>
       </ul>
@@ -26,27 +29,42 @@ export default {
   props: {
     dataObj: {
       type: Object,
-      required: true
+      required: true,
     },
     forside: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   components: {},
   data() {
     return {
       imgPath: "traeners",
     };
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-img {
-  width: 200px;
-  border-radius: 50%;
-}
 .traener__outside {
   margin: 2%;
+
+  & img {
+    width: 200px;
+    border-radius: 50%;
+  }
+
+  @media screen and (max-width: 648px) {
+    & img {
+      width: 110px;
+  }
+  & p.large {
+    font-size: .8rem;
+    font-weight: 700;
+    padding: 0;
+  }
+  & li {
+    font-size: .7rem;
+  }
+  }
 }
 </style>
