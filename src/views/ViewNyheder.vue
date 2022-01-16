@@ -1,45 +1,34 @@
 <template>
   <main class="flex center column ama__bg min--height--100">
     <section class="flex column max-1200">
-      <header>
-        <div class="clean flex nyheder__buttons">
-          <button @click="nyheder = true" :class="nyheder ? 'active' : ''">
-            <h2>Nyheder</h2>
-          </button>
-          <button @click="nyheder = false" :class="!nyheder ? 'active' : ''">
-            <h2>Dagens Træninger</h2>
-          </button>
-          <div class="flex center">
-            <select name="emme" id="selectEmne" v-model="emneSelected">
-              <option disabled value="all">Emne</option>
-              <option value="all">Alle</option>
-              <option
-                v-for="emne in emneArray"
-                :key="emne.emne"
-                :value="emne.emne"
-              >
-                {{ emne.emne }}
-              </option>
-            </select>
-          </div>
-        </div>
-      </header>
-
       <all-types
         path="nyheds"
         v-if="nyheder"
         class="flex center column min--height--100"
       >
-        <nyhed-card
-          v-for="nyhed in showNyheds"
-          :key="nyhed.title"
-          :dataObj="nyhed"
-          :showNyhed="true"
-        ></nyhed-card>
-        <section v-if="showNyheds.length == 0">
+        <opslags-header
+          :checkNyhed="nyheder"
+          @newFilter="changeSelected"
+          @changeNyhed="changeNyhed"
+        ></opslags-header>
+        <div>
+          <h1>Nyheder</h1>
+        </div>
+        <div v-if="!showNyheds.length == 0" class="grid--2x2 min--height--75">
+          <nyhed-card
+            v-for="nyhed in showNyheds"
+            :key="nyhed.title"
+            :dataObj="nyhed"
+            :showNyhed="true"
+          ></nyhed-card>
+        </div>
+        <section
+          v-if="showNyheds.length == 0"
+          class="min--height--75 flex center"
+        >
           <p class="pad-ding">
             <i
-              >Vi beklager men vi kan ikke finde noget som matcher dette
+              >Vi beklager, men vi kan ikke finde noget som matcher dette
               filter!</i
             >
           </p>
@@ -51,15 +40,28 @@
         v-if="!nyheder"
         class="flex center column min--height--100"
       >
-        <nyhed-card
-          v-for="traening in showDagens"
-          :key="traening.title"
-          :dataObj="traening"
-        ></nyhed-card>
-        <section v-if="showDagens.length == 0">
+        <opslags-header
+          :checkNyhed="nyheder"
+          @newFilter="changeSelected"
+          @changeNyhed="changeNyhed"
+        ></opslags-header>
+        <div>
+          <h1>Dagens Træninger</h1>
+        </div>
+        <div v-if="!showDagens.length == 0" class="grid--2x2 min--height--75">
+          <nyhed-card
+            v-for="traening in showDagens"
+            :key="traening.title"
+            :dataObj="traening"
+          ></nyhed-card>
+        </div>
+        <section
+          v-if="showDagens.length == 0"
+          class="min--height--75 flex center"
+        >
           <p class="pad-ding">
             <i
-              >Vi beklager men vi kan ikke finde noget som matcher dette
+              >Vi beklager, men vi kan ikke finde noget som matcher dette
               filter!</i
             >
           </p>
@@ -74,6 +76,7 @@ import { mapGetters } from "vuex";
 
 import emneArray from "@/assets/data/data_colorpicker.json";
 
+import opslagsHeader from "../components/Nyheder/OpslagsHeader.vue";
 import allTypes from "../components/Layout/LayoutAllTypes.vue";
 import nyhedCard from "../components/Nyheder/NyhedCard.vue";
 export default {
@@ -82,11 +85,12 @@ export default {
   components: {
     allTypes,
     nyhedCard,
+    opslagsHeader,
   },
   data() {
     return {
       emneArray,
-      emneSelected: "all",
+      emneSelected: "Alle",
       nyheder: true,
     };
   },
@@ -99,7 +103,7 @@ export default {
       let returnArray = this.allNyheds.filter(
         (obj) => obj.emne == this.emneSelected
       );
-      if (this.emneSelected == "all") returnArray = this.allNyheds;
+      if (this.emneSelected == "Alle") returnArray = this.allNyheds;
 
       return returnArray;
     },
@@ -107,12 +111,18 @@ export default {
       let returnArray = this.allDagenstraenings.filter(
         (obj) => obj.emne == this.emneSelected
       );
-      if (this.emneSelected == "all") returnArray = this.allDagenstraenings;
-      console.log(returnArray);
+      if (this.emneSelected == "Alle") returnArray = this.allDagenstraenings;
       return returnArray;
     },
   },
-  methods: {},
+  methods: {
+    changeSelected(valgt) {
+      this.emneSelected = valgt;
+    },
+    changeNyhed(nyhed) {
+      this.nyheder = nyhed;
+    },
+  },
   created() {},
   mounted() {
     window.scrollTo(0, 0);

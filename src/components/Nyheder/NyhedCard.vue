@@ -1,5 +1,5 @@
 <template>
-  <article class="nyhedCard__shell flex center column">
+  <article class="nyhedCard__shell flex column">
     <div>
       <img
         v-if="showNyhed"
@@ -89,10 +89,15 @@ export default {
 <style lang="scss" scoped>
 .nyhedCard__shell {
   background-color: var(--neutral-600);
-  padding: .5rem;
   max-width: 60ch;
   margin: 1rem 0;
+  align-items: center;
+  justify-content: flex-start;
   border-radius: var(--edge);
+
+  & .nyhed__card--textContainer {
+    padding: .5rem;
+  }
 }
 img {
   max-width: 500px;

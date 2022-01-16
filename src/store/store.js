@@ -24,6 +24,7 @@ export default createStore({
             //Used to know what the width of the screen is at the moment, and will update on resize from the use of the mutation (RESIZE_WINDOW).
             windowWidth: window.innerWidth,
             navigation: [],
+            likes: 0
         }
     },
     getters: {
@@ -51,6 +52,9 @@ export default createStore({
             // Used for checking what type of navigation should be used (Hamburger-With-Menu or Desktop-List).
             state.windowWidth = window.innerWidth;
         },
+        updateLikes: (state) => {
+            state.likes += 1;
+        }
     },
     actions: {
 
