@@ -40,6 +40,7 @@
         v-if="!nyheder"
         class="flex center column min--height--100"
       >
+      <window-img v-if="showWindow" :imgArray="windowImgArray"></window-img>
         <opslags-header
           :checkNyhed="nyheder"
           @newFilter="changeSelected"
@@ -50,6 +51,7 @@
         </div>
         <div v-if="!showDagens.length == 0" class="grid--2x2 min--height--75">
           <nyhed-card
+          @click="addImgArray(traening.billeder)"
             v-for="traening in showDagens"
             :key="traening.title"
             :dataObj="traening"
@@ -76,6 +78,7 @@ import { mapGetters } from "vuex";
 
 import emneArray from "@/assets/data/data_colorpicker.json";
 
+import windowImg from "../components/Nyheder/OpslagsWindow.vue"
 import opslagsHeader from "../components/Nyheder/OpslagsHeader.vue";
 import allTypes from "../components/Layout/LayoutAllTypes.vue";
 import nyhedCard from "../components/Nyheder/NyhedCard.vue";
@@ -86,12 +89,15 @@ export default {
     allTypes,
     nyhedCard,
     opslagsHeader,
+    windowImg
   },
   data() {
     return {
       emneArray,
       emneSelected: "Alle",
       nyheder: true,
+      windowImgArray: null,
+      showWindow: false,
     };
   },
   computed: {
@@ -122,6 +128,10 @@ export default {
     changeNyhed(nyhed) {
       this.nyheder = nyhed;
     },
+    addImgArray(array) {
+      this.windowImgArray = array;
+      this.showWindow = true;
+    }
   },
   created() {},
   mounted() {
