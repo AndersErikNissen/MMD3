@@ -4,7 +4,7 @@
       <ui-loader v-if="loading"></ui-loader>
     </transition>
 
-    <section v-if="getAllData && !loading">
+    <section v-if="getAllData && !loading" class="allTypes__default">
       <!-- Default Slot -->
       <slot :getAllData="getAllData"  />
     </section>
@@ -57,4 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.allTypes__default {
+  width: 100%;
+}
 </style>

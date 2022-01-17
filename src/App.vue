@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       path: "the-footer",
+      question: "Hej med dig!"
     }
   },
   components: {
