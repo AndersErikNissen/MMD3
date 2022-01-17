@@ -40,7 +40,7 @@
         v-if="!nyheder"
         class="flex center column min--height--100"
       >
-      <window-img v-if="showWindow" :imgArray="windowImgArray"></window-img>
+      <window-img v-if="showWindow" :imgArray="windowImgArray" :showWindow="showWindow" @closeWindow="changeShowWindow"></window-img>
         <opslags-header
           :checkNyhed="nyheder"
           @newFilter="changeSelected"
@@ -131,6 +131,9 @@ export default {
     addImgArray(array) {
       this.windowImgArray = array;
       this.showWindow = true;
+    },
+    changeShowWindow() {
+      this.showWindow = false;
     }
   },
   created() {},

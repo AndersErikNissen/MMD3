@@ -1,6 +1,6 @@
 <template>
-  <section class="window__container">
-    <div class="window__img" v-if="imgArray">
+  <section class="window__container" v-if="imgArray && showWindow">
+    <div class="window__img">
       <img
         :src="require('@/assets/images/dagens/' + imgArray[currentImg].billede)"
         alt="Billede til Dagens Træning"
@@ -17,10 +17,15 @@
         <span> Næste </span>
       </button>
     </div>
+    <div class="window__exit" @click="closeWindow">
+      <img :src="exitSvg" alt="Kryds">
+    </div>
   </section>
 </template>
 
 <script>
+import exitSvg from "@/assets/svg/exit_window.svg"
+
 export default {
   name: "OpslagsWindow",
   props: {
@@ -28,11 +33,15 @@ export default {
       type: Object,
       required: true,
     },
+    showWindow: {
+      type: Boolean,
+    }
   },
   components: {},
   data() {
     return {
       currentImg: 0,
+      exitSvg
     };
   },
   methods: {
@@ -44,6 +53,9 @@ export default {
       this.currentImg--;
       if (this.currentImg < 0) this.currentImg = this.imgArray.length - 1;
     },
+    closeWindow() {
+      this.$emit("closeWindow")
+    }
   },
   created() {},
   mounted() {},
@@ -80,12 +92,22 @@ export default {
   }
 
   & .window__img {
-
+    width: 100%;
+    height: 90vh;
     
     & img {
       width: 100%;
-      max-width: 1200px;
+      object-fit: contain;
+      height: 90vh;
     }
+  }
+  & .window__exit {
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
   }
 }
 </style>
