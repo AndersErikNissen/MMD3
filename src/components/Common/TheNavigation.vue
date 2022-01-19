@@ -29,7 +29,7 @@ import navHamburger from "./Navigation/TheNavigationHamburger.vue";
 import navLogin from "./Navigation/TheNavigationLogin.vue";
 import logoSvg from "@/assets/svg/logo.svg";
 export default {
-  name: "",
+  name: "TheNavigation",
   props: {},
   components: {
     navList,

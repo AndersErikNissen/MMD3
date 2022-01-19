@@ -6,7 +6,7 @@
 
     <section v-if="getAllData && !loading" class="allTypes__default">
       <!-- Default Slot -->
-      <slot :getAllData="getAllData"  />
+      <slot :getAllData="getAllData" />
     </section>
   </section>
 </template>

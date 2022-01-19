@@ -52,9 +52,6 @@ export default createStore({
             // Used for checking what type of navigation should be used (Hamburger-With-Menu or Desktop-List).
             state.windowWidth = window.innerWidth;
         },
-        updateLikes: (state) => {
-            state.likes += 1;
-        }
     },
     actions: {
 

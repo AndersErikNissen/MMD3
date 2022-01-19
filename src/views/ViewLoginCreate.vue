@@ -131,7 +131,7 @@ export default {
     textDesc() {
       let txt = "";
       if (this.create === "normal") {
-        txt = "Opret din burger her, og deltag i træningerne!";
+        txt = "Opret din bruger her, og deltag i træningerne!";
       } else {
         txt = "Opret gæste bruger og få tilsendt et gæste login!";
       }

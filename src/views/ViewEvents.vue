@@ -60,7 +60,7 @@ export default {
       newDate: new Date(),
       month: new Date().getMonth() + 1,
       year: new Date().getFullYear(),
-    };
+    }
   },
   computed: {
     ...mapGetters({
